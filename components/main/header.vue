@@ -6,7 +6,7 @@
         <template v-slot:activator="{ props }">
           <VBtn v-bind="props" class="v-btn--blank">기업소개</VBtn>
         </template>
-        <VList>
+        <VList class="overlay-menu">
           <VListItem @click="$router.push('/corp/introduce')">인사말</VListItem>
           <VListItem @click="$router.push('/corp/field')">사업영역</VListItem>
           <VListItem @click="$router.push('/corp/client')">주요고객사</VListItem>
@@ -18,7 +18,7 @@
         <template v-slot:activator="{ props }">
           <VBtn v-bind="props" class="v-btn--blank">사업분야</VBtn>
         </template>
-        <VList>
+        <VList class="overlay-menu">
           <VListItem @click="$router.push('/field/diplay')">응용 LED 디스플레이</VListItem>
           <VListItem @click="$router.push('/field/smart-factory')">스마트팩토리(빌딩 자동화), 기계식 주차장</VListItem>
           <VListItem @click="$router.push('/field/dev')">개발(S/W & H/W)</VListItem>
@@ -30,7 +30,7 @@
         <template v-slot:activator="{ props }">
           <VBtn v-bind="props" class="v-btn--blank">커뮤니티</VBtn>
         </template>
-        <VList>
+        <VList class="overlay-menu">
           <VListItem @click="$router.push('/field/notice')">공지사항</VListItem>
           <VListItem @click="$router.push('/field/news')">News</VListItem>
         </VList>
@@ -40,7 +40,7 @@
         <template v-slot:activator="{ props }">
           <VBtn v-bind="props" class="v-btn--blank">문의사항</VBtn>
         </template>
-        <VList>
+        <VList class="overlay-menu">
           <VListItem @click="$router.push('/field/ask')">기술/견적문의</VListItem>
           <VListItem @click="$router.push('/field/pds')">자료실</VListItem>
         </VList>
@@ -63,5 +63,11 @@ const showDrawer = useMainDrawerOpenedState()
   .menus {
     gap: 50px;
   }
+}
+
+.overlay-menu {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #1e293b !important;
 }
 </style>

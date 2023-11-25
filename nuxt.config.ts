@@ -3,11 +3,12 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
   modules: ['@invictus.codes/nuxt-vuetify'],
-  spaLoadingTemplate: true,
+  // spaLoadingTemplate: true,
   routeRules: {
     '/**': { ssr: false },
   },
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       meta: [{ name: 'viewport', content: 'width=1300,user-scalable=yes' }],
     },

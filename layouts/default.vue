@@ -1,6 +1,6 @@
 <template>
   <VLayout class="rounded rounded-md" style="flex-direction: column">
-    <v-navigation-drawer color="grey-darken-2" v-model="showDrawer" location="right" temporary></v-navigation-drawer>
+    <MainDrawer />
 
     <!-- <v-app-bar :order="order" color="grey-lighten-2" flat title="Application bar">
       <template v-slot:append>
@@ -14,6 +14,4 @@
     <MainFooter />
   </VLayout>
 </template>
-<script lang="ts" setup>
-const showDrawer = useMainDrawerOpenedState()
-</script>
+<script lang="ts" setup></script>
