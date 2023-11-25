@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ['@invictus.codes/nuxt-vuetify'],
   spaLoadingTemplate: true,
   routeRules: {
-    '/**': { ssr: true },
+    '/**': { ssr: false },
   },
   app: {
     head: {
