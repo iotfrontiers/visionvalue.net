@@ -9,6 +9,7 @@
     "prettier.configPath": ".prettierrc",
     "editor.formatOnSave": true,
     "editor.fontFamily": "D2Coding, Consolas, 'Courier New', monospace",
+    "vue.complete.casing.props": "autoCamel",
     "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
     "powermode.enabled": true,
     "powermode.shake.enabled": false,

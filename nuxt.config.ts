@@ -7,11 +7,16 @@ export default defineNuxtConfig({
   routeRules: {
     '/**': { ssr: true },
   },
+  app: {
+    head: {
+      meta: [{ name: 'viewport', content: 'width=1300,user-scalable=yes' }],
+    },
+  },
   vuetify: {
     moduleOptions: {
-      styles: {
-        configFile: '~/assets/main.scss',
-      },
+      // styles: {
+      //   configFile: '~/assets/main.scss',
+      // },
     },
     vuetifyOptions: {
       theme: {

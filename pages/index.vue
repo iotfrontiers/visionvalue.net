@@ -1,3 +1,102 @@
 <template>
-  <div>Main Pages.</div>
+  <VContainer :fluid="true" class="main-container">
+    <VRow class="main-row">
+      <MainHeader />
+      <section class="banner-text text-white">
+        <p>We are IT experts</p>
+        <p class="title">FRONTIER</p>
+        <p>
+          프런티어는 숙련된 개발자의 개발, 제조경험과
+          <br />
+          노하우를 바탕으로 고객의 비지니스를 지원합니다.
+          <br /><br />
+          유능한 전문 업체를 만나 제품과 서비스를 완성하고, 고객의 이야기를 가치로 바꿔보세요.
+        </p>
+      </section>
+      <VRow class="quick-button-row">
+        <VCol>
+          <p class="title">Business Area</p>
+          <p class="text-grey-lighten-1 mt-2">사업분야</p>
+          <p class="text-grey-lighten-1 text-right more">
+            <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
+          </p>
+        </VCol>
+        <VCol>
+          <p class="title">Qutote Contact</p>
+          <p class="text-grey-lighten-1 mt-2">견적/문의 사항</p>
+          <p class="text-grey-lighten-1 text-right more">
+            <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
+          </p>
+        </VCol>
+      </VRow>
+    </VRow>
+    <MainBusinessArea />
+    <MainAboutUs />
+    <MainHistory />
+    <MainNotice />
+  </VContainer>
 </template>
+<script setup lang="ts"></script>
+<style lang="scss">
+.main-container {
+  margin: 0;
+  // padding: 0;
+  min-width: 700px;
+
+  .v-row.main-row {
+    min-height: 1080px;
+    background: url('~/assets/img/main/banner1.png');
+    background-size: cover;
+    position: relative;
+
+    .banner-text {
+      position: absolute;
+      top: 380px;
+      left: 95px;
+
+      p {
+        margin: 5px 0;
+        line-height: 25px;
+        text-shadow: 2px 2px 4px gray;
+
+        &.title {
+          font-weight: 900;
+          font-size: 45px;
+          margin: 20px 0;
+          text-shadow: none;
+        }
+      }
+    }
+
+    .quick-button-row {
+      position: absolute;
+      left: 95px;
+      bottom: 5px;
+      gap: 30px;
+
+      .v-col {
+        min-width: 260px;
+        border-right: 1px solid #fff;
+        padding-right: 30px;
+
+        p {
+          font-size: 15px;
+
+          &.title {
+            font-weight: 700;
+            font-size: 25px;
+          }
+
+          &.more {
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+          &.more .v-icon {
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

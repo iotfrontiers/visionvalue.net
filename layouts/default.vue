@@ -1,18 +1,19 @@
 <template>
-  <v-layout class="rounded rounded-md">
-    <v-navigation-drawer color="grey-darken-2" permanent></v-navigation-drawer>
+  <VLayout class="rounded rounded-md" style="flex-direction: column">
+    <v-navigation-drawer color="grey-darken-2" v-model="showDrawer" location="right" temporary></v-navigation-drawer>
 
-    <v-app-bar :order="order" color="grey-lighten-2" flat title="Application bar">
+    <!-- <v-app-bar :order="order" color="grey-lighten-2" flat title="Application bar">
       <template v-slot:append>
         <v-switch v-model="order" hide-details inset label="Toggle order" true-value="-1" false-value="0"></v-switch>
       </template>
-    </v-app-bar>
+    </v-app-bar> -->
 
-    <v-main class="d-flex align-center justify-center" style="min-height: 300px">
+    <VMain class="d-flex align-center justify-center" style="min-height: 300px">
       <slot />
-    </v-main>
-  </v-layout>
+    </VMain>
+    <MainFooter />
+  </VLayout>
 </template>
 <script lang="ts" setup>
-const order = ref(0)
+const showDrawer = useMainDrawerOpenedState()
 </script>
