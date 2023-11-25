@@ -3,7 +3,7 @@
     <VRow class="page-header-row" :style="{ background: `url(/img/${props.headerBgImg})` }">
       <MainHeader />
     </VRow>
-    <VRow>
+    <VRow style="min-height: 100px">
       <slot />
     </VRow>
   </VContainer>

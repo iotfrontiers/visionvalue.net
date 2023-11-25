@@ -1,4 +1,9 @@
 .v-btn--blank {
   background: none;
   box-shadow: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
 }

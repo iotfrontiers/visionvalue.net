@@ -1,7 +1,8 @@
 <template>
   <div class="page-wrap">
-    <CommonPageHeader header-bg-img="banner-corp.png" />
-    <NuxtPage></NuxtPage>
+    <CommonPageHeader header-bg-img="banner-corp.png">
+      <NuxtPage />
+    </CommonPageHeader>
   </div>
 </template>
 <script lang="ts" setup></script>
