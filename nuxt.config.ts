@@ -7,4 +7,16 @@ export default defineNuxtConfig({
   routeRules: {
     '/**': { ssr: true },
   },
+  vuetify: {
+    moduleOptions: {
+      styles: {
+        configFile: '~/assets/main.scss',
+      },
+    },
+    vuetifyOptions: {
+      theme: {
+        defaultTheme: 'dark',
+      },
+    },
+  },
 })
