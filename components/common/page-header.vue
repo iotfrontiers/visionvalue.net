@@ -1,5 +1,5 @@
 <template>
-  <VContainer>
+  <VContainer :fluid="true">
     <VRow class="page-header-row" :style="{ background: `url(/img/${props.headerBgImg})` }">
       <MainHeader />
     </VRow>
@@ -14,7 +14,14 @@ const props = withDefaults(
     headerBgImg?: string
   }>(),
   {
-    headerBgImg: 'banner-biz.png',
+    headerBgImg: 'banner-corp.png',
   },
 )
 </script>
+
+<style lang="scss">
+.v-row.page-header-row {
+  min-height: 1018px;
+  background-size: cover;
+}
+</style>
