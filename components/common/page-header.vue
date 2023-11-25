@@ -2,11 +2,11 @@
   <VContainer class="sub-page-container" :fluid="true">
     <VRow class="page-header-row" :style="{ background: `url(/img/${props.headerBgImg})` }">
       <MainHeader />
-      <CommonPageTabs style="position: absolute; left: 0; right: 0; bottom: 0" :items="props.tabItems" />
+      <CommonPageTabs style="position: absolute; left: 0; right: 0; bottom: 0" :items="props.tabItems" @click:menu-item="menuTabClicked" />
     </VRow>
     <VRow class="content-wrap">
-      <!-- <div class="sub-title">타이틀</div> -->
       <div class="section">
+        <div class="sub-title text-h3 font-weight-black mb-15">{{ subTitle }}</div>
         <slot />
       </div>
     </VRow>
@@ -24,6 +24,12 @@ const props = withDefaults(
     headerBgImg: 'banner-corp.png',
   },
 )
+
+const subTitle = ref(props.tabItems[0].title)
+
+const menuTabClicked = (menu: Tab) => {
+  subTitle.value = menu.title
+}
 </script>
 
 <style lang="scss">

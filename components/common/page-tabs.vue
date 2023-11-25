@@ -7,7 +7,7 @@
         active: selectedIndex === idx,
       }"
       class="flex-grow-1 tab d-flex align-center justify-center"
-      @click="$router.push(item.targetUrl)"
+      @click="itemClicked(item)"
     >
       <span>{{ item.title }}</span>
     </div>
@@ -24,20 +24,37 @@ const props = defineProps<{
   items: Tab[]
 }>()
 
+const emit = defineEmits<{
+  (e: 'click:menuItem', menu: Tab): void
+}>()
+
 const selectedIndex = ref(-1)
 
 const route = useRoute()
 onMounted(() => {
+  selectdIndex()
+})
+
+function selectdIndex() {
   if (props.items) {
     const sameRouteIndex = props.items.findIndex(i => i.targetUrl === route.path)
     if (sameRouteIndex > -1) {
       selectedIndex.value = sameRouteIndex
+
+      emit('click:menuItem', props.items[selectedIndex.value < 0 ? 0 : selectedIndex.value])
+
       return
     }
 
     selectedIndex.value = -1
   }
-})
+}
+
+const itemClicked = (item: Tab) => {
+  useRouter()
+    .push(item.targetUrl)
+    .then(() => selectdIndex())
+}
 </script>
 <style lang="scss">
 .tabs {
