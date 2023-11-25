@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@invictus.codes/nuxt-vuetify'],
+  modules: ['@invictus.codes/nuxt-vuetify', 'nuxt-swiper'],
   // spaLoadingTemplate: true,
   routeRules: {
     '/**': { ssr: false },

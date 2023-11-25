@@ -18,14 +18,18 @@
           <p class="title">Business Area</p>
           <p class="text-grey-lighten-1 mt-2">사업분야</p>
           <p class="text-grey-lighten-1 text-right more">
-            <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
+            <VBtn class="v-btn--blank" @click="$router.push('/field/diplay')">
+              <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
+            </VBtn>
           </p>
         </VCol>
         <VCol>
           <p class="title">Qutote Contact</p>
           <p class="text-grey-lighten-1 mt-2">견적/문의 사항</p>
           <p class="text-grey-lighten-1 text-right more">
-            <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
+            <VBtn class="v-btn--blank" @click="$router.push('/field/ask')">
+              <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
+            </VBtn>
           </p>
         </VCol>
       </VRow>

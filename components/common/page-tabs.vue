@@ -20,8 +20,6 @@ export interface Tab {
 }
 </script>
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
-
 const props = defineProps<{
   items: Tab[]
 }>()
@@ -32,7 +30,6 @@ const route = useRoute()
 onMounted(() => {
   if (props.items) {
     const sameRouteIndex = props.items.findIndex(i => i.targetUrl === route.path)
-    console.log('sameRouteIndex', sameRouteIndex)
     if (sameRouteIndex > -1) {
       selectedIndex.value = sameRouteIndex
       return
