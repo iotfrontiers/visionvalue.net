@@ -1,6 +1,6 @@
 <template>
   <VContainer class="sub-page-container" :fluid="true">
-    <VRow class="page-header-row" :style="{ background: `url(/img/${props.headerBgImg})` }">
+    <VRow class="page-header-row" :style="{ backgroundImage: `url(/img/${props.headerBgImg})` }">
       <MainHeader />
       <CommonPageTabs style="position: absolute; left: 0; right: 0; bottom: 0" :items="props.tabItems" @click:menu-item="menuTabClicked" />
     </VRow>
@@ -36,6 +36,8 @@ const menuTabClicked = (menu: Tab) => {
 .v-row.page-header-row {
   min-height: 1018px;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
 }
 

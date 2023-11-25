@@ -49,8 +49,10 @@
 
   .v-row.main-row {
     min-height: 1080px;
-    background: url('~/assets/img/main/banner1.png');
+    background-image: url('~/assets/img/main/banner1.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
 
     .banner-text {
