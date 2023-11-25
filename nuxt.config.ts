@@ -1,0 +1,10 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  ssr: true,
+  devtools: { enabled: true },
+  modules: ['@invictus.codes/nuxt-vuetify'],
+  spaLoadingTemplate: true,
+  routeRules: {
+    '/**': { ssr: true },
+  },
+})
