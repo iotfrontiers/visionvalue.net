@@ -7,10 +7,10 @@
           <VBtn v-bind="props" class="v-btn--blank">기업소개</VBtn>
         </template>
         <VList>
-          <VListItem>인사말</VListItem>
-          <VListItem>사업영역</VListItem>
-          <VListItem>주요고객사</VListItem>
-          <VListItem>오시는길</VListItem>
+          <VListItem @click="$router.push('/corp/introduce')">인사말</VListItem>
+          <VListItem @click="$router.push('/corp/field')">사업영역</VListItem>
+          <VListItem @click="$router.push('/corp/client')">주요고객사</VListItem>
+          <VListItem @click="$router.push('/corp/map')">오시는길</VListItem>
         </VList>
       </VMenu>
 
@@ -19,10 +19,10 @@
           <VBtn v-bind="props" class="v-btn--blank">사업분야</VBtn>
         </template>
         <VList>
-          <VListItem>응용 LED 디스플레이</VListItem>
-          <VListItem>스마트팩토리(빌딩 자동화), 기계식 주차장</VListItem>
-          <VListItem>개발(S/W & H/W)</VListItem>
-          <VListItem>인력 아웃소싱 사업</VListItem>
+          <VListItem @click="$router.push('/field/diplay')">응용 LED 디스플레이</VListItem>
+          <VListItem @click="$router.push('/field/smart-factory')">스마트팩토리(빌딩 자동화), 기계식 주차장</VListItem>
+          <VListItem @click="$router.push('/field/dev')">개발(S/W & H/W)</VListItem>
+          <VListItem @click="$router.push('/field/out-sourcing')">인력 아웃소싱 사업</VListItem>
         </VList>
       </VMenu>
 
@@ -31,8 +31,8 @@
           <VBtn v-bind="props" class="v-btn--blank">커뮤니티</VBtn>
         </template>
         <VList>
-          <VListItem>공지사항</VListItem>
-          <VListItem>News</VListItem>
+          <VListItem @click="$router.push('/field/notice')">공지사항</VListItem>
+          <VListItem @click="$router.push('/field/news')">News</VListItem>
         </VList>
       </VMenu>
 
@@ -41,8 +41,8 @@
           <VBtn v-bind="props" class="v-btn--blank">문의사항</VBtn>
         </template>
         <VList>
-          <VListItem>기술/견적문의</VListItem>
-          <VListItem>자료실</VListItem>
+          <VListItem @click="$router.push('/field/ask')">기술/견적문의</VListItem>
+          <VListItem @click="$router.push('/field/pds')">자료실</VListItem>
         </VList>
       </VMenu>
 
