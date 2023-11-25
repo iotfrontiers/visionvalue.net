@@ -5,7 +5,7 @@
       <CommonPageTabs style="position: absolute; left: 0; right: 0; bottom: 0" :items="props.tabItems" />
     </VRow>
     <VRow class="content-wrap">
-      <div class="sub-title">타이틀</div>
+      <!-- <div class="sub-title">타이틀</div> -->
       <div class="section">
         <slot />
       </div>
@@ -46,6 +46,9 @@ const props = withDefaults(
   }
 
   .section {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
     margin: 0 auto;
   }
 }
