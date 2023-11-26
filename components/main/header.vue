@@ -61,7 +61,7 @@ const showDrawer = useMainDrawerOpenedState()
   font-weight: 600;
 
   .menus {
-    gap: 50px;
+    gap: 20px;
   }
 }
 

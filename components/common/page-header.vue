@@ -34,7 +34,7 @@ const menuTabClicked = (menu: Tab) => {
 
 <style lang="scss">
 .v-row.page-header-row {
-  min-height: 1018px;
+  min-height: 506px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

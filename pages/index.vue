@@ -27,7 +27,7 @@
           <p class="title">Qutote Contact</p>
           <p class="text-grey-lighten-1 mt-2">견적/문의 사항</p>
           <p class="text-grey-lighten-1 text-right more">
-            <VBtn class="v-btn--blank" @click="$router.push('/field/ask')">
+            <VBtn class="v-btn--blank" @click="$router.push('/inquiry/ask')">
               <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
             </VBtn>
           </p>
