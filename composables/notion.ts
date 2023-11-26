@@ -19,4 +19,12 @@ interface NotionPageRequest {
   startCursor?: string
 }
 
-export { type NotionNotice, type NotionListResponse, type NotionPageRequest }
+interface NotionAskReqeust {
+  title?: string
+  author?: string
+  email?: string
+  contact?: string
+  content?: string
+}
+
+export { type NotionNotice, type NotionListResponse, type NotionPageRequest, type NotionAskReqeust }

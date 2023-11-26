@@ -39,17 +39,19 @@ const route = useRoute()
 const router = useRouter()
 const noticeInfo = ref<NotionNotice>(null)
 async function loadDetail() {
-  noticeInfo.value = await $fetch(props.apiUrl, {
-    params: {
-      id: route.params.id,
-      update: 'true',
-    },
-  })
+  await useLoadingTask(async () => {
+    noticeInfo.value = await $fetch(props.apiUrl, {
+      params: {
+        id: route.params.id,
+        update: 'true',
+      },
+    })
 
-  if (!noticeInfo.value) {
-    alert(COMMON_MESSAGES.DATA_NOT_FOUND_ERROR)
-    router.back()
-  }
+    if (!noticeInfo.value) {
+      alert(COMMON_MESSAGES.DATA_NOT_FOUND_ERROR)
+      router.back()
+    }
+  })
 }
 
 onMounted(() => loadDetail())

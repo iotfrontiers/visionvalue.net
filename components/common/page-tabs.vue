@@ -55,6 +55,13 @@ const itemClicked = (item: Tab) => {
     .push(item.targetUrl)
     .then(() => selectdIndex())
 }
+
+watch(
+  () => route.fullPath,
+  () => {
+    nextTick(() => selectdIndex())
+  },
+)
 </script>
 <style lang="scss">
 .tabs {

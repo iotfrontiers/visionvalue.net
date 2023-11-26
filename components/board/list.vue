@@ -69,21 +69,23 @@ const pageSize = ref(100)
 const noticeData = ref<NotionListResponse<NotionNotice>>()
 
 async function loadNotice() {
-  try {
-    noticeData.value = await $fetch(props.apiUrl, {
-      method: 'post',
-      body: {
-        pageSize: pageSize.value,
-      },
-    })
+  await useLoadingTask(async () => {
+    try {
+      noticeData.value = await $fetch(props.apiUrl, {
+        method: 'post',
+        body: {
+          pageSize: pageSize.value,
+        },
+      })
 
-    let startNo = pageSize.value * (currentPage.value - 1)
-    noticeData.value?.list?.forEach(row => {
-      row.num = ++startNo
-    })
-  } catch (e) {
-    alert(COMMON_MESSAGES.DATA_RETRIEVE_ERROR)
-  }
+      let startNo = pageSize.value * (currentPage.value - 1)
+      noticeData.value?.list?.forEach(row => {
+        row.num = ++startNo
+      })
+    } catch (e) {
+      alert(COMMON_MESSAGES.DATA_RETRIEVE_ERROR)
+    }
+  })
 }
 
 loadNotice()
