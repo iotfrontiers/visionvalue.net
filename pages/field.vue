@@ -1,0 +1,17 @@
+<template>
+  <div class="page-wrap">
+    <CommonPageHeader
+      header-bg-img="banner-field.png"
+      :tabItems="[
+        { title: '응용 LED 디스플레이', targetUrl: '/field/display' },
+        { title: '스마트팩토리(빌딩 자동화), 기계식 주차장', targetUrl: '/field/smart-factory' },
+        { title: '개발(S/W & H/W)', targetUrl: '/field/dev' },
+        { title: '인력 아웃소싱 사업', targetUrl: '/field/out-sourcing' },
+      ]"
+    >
+      <NuxtPage />
+    </CommonPageHeader>
+  </div>
+</template>
+<script lang="ts" setup></script>
+<style lang="scss"></style>
