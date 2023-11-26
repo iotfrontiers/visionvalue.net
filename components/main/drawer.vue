@@ -30,16 +30,16 @@
         <template v-slot:activator="{ props: prop }">
           <VListItem v-bind="prop" title="커뮤니티" density="compact" prependIcon="mdi-account-group"></VListItem>
         </template>
-        <VListItem @click="movePage('/field/notice')" prependIcon="mdi-bulletin-board">공지사항</VListItem>
-        <VListItem @click="movePage('/field/news')" prependIcon="mdi-newspaper-variant-multiple-outline">News</VListItem>
+        <VListItem @click="movePage('/community/notice')" prependIcon="mdi-bulletin-board">공지사항</VListItem>
+        <VListItem @click="movePage('/community/news')" prependIcon="mdi-newspaper-variant-multiple-outline">News</VListItem>
       </VListGroup>
 
       <VListGroup>
         <template v-slot:activator="{ props: prop }">
           <VListItem v-bind="prop" title="문의사항" density="compact" prependIcon="mdi-phone-dial-outline"></VListItem>
         </template>
-        <VListItem @click="movePage('/field/ask')" prependIcon="mdi-file-document-edit">기술/견적문의</VListItem>
-        <VListItem @click="movePage('/field/pds')" prependIcon="mdi-download-box-outline">자료실</VListItem>
+        <VListItem @click="movePage('/inquiry/ask')" prependIcon="mdi-file-document-edit">기술/견적문의</VListItem>
+        <VListItem @click="movePage('/inquiry/pds')" prependIcon="mdi-download-box-outline">자료실</VListItem>
       </VListGroup>
     </VList>
   </VNavigationDrawer>

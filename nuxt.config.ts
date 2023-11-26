@@ -7,6 +7,24 @@ export default defineNuxtConfig({
   routeRules: {
     '/**': { ssr: false },
   },
+  typescript: {
+    strict: false,
+  },
+  hooks: {
+    'pages:extend'(pages) {
+      const communityPage = pages.find(p => p.name === 'community')
+      if (communityPage) {
+        const noticePage = communityPage.children.find(p => p.name === 'community-notice')
+        if (noticePage && noticePage.children.length === 1) {
+          noticePage.children[0].path = 'notice/:id()'
+          communityPage.children.push(noticePage.children[0])
+          noticePage.children.splice(0, 1)
+        }
+      }
+
+      console.warn('pages', pages)
+    },
+  },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {

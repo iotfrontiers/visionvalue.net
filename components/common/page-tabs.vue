@@ -37,7 +37,7 @@ onMounted(() => {
 
 function selectdIndex() {
   if (props.items) {
-    const sameRouteIndex = props.items.findIndex(i => i.targetUrl === route.path)
+    const sameRouteIndex = props.items.findIndex(i => i.targetUrl === route.path || route.path.startsWith(i.targetUrl))
     if (sameRouteIndex > -1) {
       selectedIndex.value = sameRouteIndex
 
