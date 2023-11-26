@@ -20,9 +20,27 @@ export default defineNuxtConfig({
           communityPage.children.push(noticePage.children[0])
           noticePage.children.splice(0, 1)
         }
+
+        const newsPage = communityPage.children.find(p => p.name === 'community-news')
+        if (newsPage && newsPage.children.length === 1) {
+          newsPage.children[0].path = 'news/:id()'
+          communityPage.children.push(newsPage.children[0])
+          newsPage.children.splice(0, 1)
+        }
       }
 
-      console.warn('pages', pages)
+      const inquiryPage = pages.find(p => p.name === 'inquiry')
+      if (inquiryPage) {
+        const pdsPage = inquiryPage.children.find(p => p.name === 'inquiry-pds')
+        if (pdsPage && pdsPage.children.length === 1) {
+          pdsPage.children[0].path = 'pds/:id()'
+          inquiryPage.children.push(pdsPage.children[0])
+          pdsPage.children.splice(0, 1)
+        }
+      }
+    },
+    'vite:extendConfig'(config) {
+      config.optimizeDeps.include.push('fs-extra')
     },
   },
   app: {

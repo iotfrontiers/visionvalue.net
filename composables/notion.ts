@@ -6,6 +6,7 @@ interface NotionNotice {
   viewCnt?: number
   date?: string
   content?: string
+  imgUrl?: string
 }
 
 interface NotionListResponse<T> {
