@@ -1,8 +1,8 @@
 <template>
-  <VRow class="business-row" noGutters>
+  <VRow class="business-row">
     <!-- <VCol class="left-col" cols="3"> -->
     <VCol class="left-col">
-      <div class="title">Business Area</div>
+      <div class="section-title">Business Area</div>
       <div class="desc">
         <span class="text-grey-darken-2">다양한 통합 개발 서비스와 함께</span> <br /><span class="font-weight-medium"
           >끝 없는 프로젝트를 이어나갑니다.</span
@@ -26,7 +26,7 @@
               <img :src="`/img/main-field-box${idx + 1}.png`" />
 
               <div class="title font-weight-medium mt-4">
-                <v-divider :class="['me-4', 'ms-1', { selected: selectedIdx === item.idx }]" vertical></v-divider>
+                <v-divider :thickness="3" :class="['me-4', 'ms-1', { selected: selectedIdx === item.idx }]" vertical></v-divider>
                 {{ item.label }}
               </div>
             </div>
@@ -82,9 +82,9 @@ function onActiveIndexChange(obj: any) {
       min-width: 200px;
       margin-bottom: 20px;
 
-      .title {
-        font-weight: 700;
-        font-size: 25px;
+      .section-title {
+        // font-weight: 700;
+        // font-size: 25px;
         padding: 20px 0;
         border-bottom: 1px solid #000;
       }
@@ -133,8 +133,6 @@ function onActiveIndexChange(obj: any) {
       }
 
       .v-divider {
-        border-right-width: medium;
-
         &.selected {
           border-color: blue;
           opacity: 0.6;

@@ -1,7 +1,7 @@
 <template>
   <VRow class="about-us-row">
     <VCol :cols="12">
-      <div class="title">About Us</div>
+      <div class="section-title">About Us</div>
     </VCol>
     <VCol :cols="12">
       <div class="sub-title">이야기를 가치로 만듭니다.</div>
@@ -23,9 +23,9 @@
     padding-left: 95px;
     padding-top: 40px;
 
-    .title {
-      font-size: 32px;
-      font-weight: 600;
+    .section-title {
+      // font-size: 32px;
+      // font-weight: 600;
       max-width: 250px;
       padding-bottom: 10px;
       border-bottom: 1px solid #fff;
