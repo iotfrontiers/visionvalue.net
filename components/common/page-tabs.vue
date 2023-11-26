@@ -66,6 +66,8 @@ const itemClicked = (item: Tab) => {
 .tabs .tab {
   text-align: center;
   cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
