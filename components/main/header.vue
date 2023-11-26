@@ -31,8 +31,8 @@
           <VBtn v-bind="props" class="v-btn--blank">커뮤니티</VBtn>
         </template>
         <VList class="overlay-menu">
-          <VListItem @click="$router.push('/field/notice')">공지사항</VListItem>
-          <VListItem @click="$router.push('/field/news')">News</VListItem>
+          <VListItem @click="$router.push('/community/notice')">공지사항</VListItem>
+          <VListItem @click="$router.push('/community/news')">News</VListItem>
         </VList>
       </VMenu>
 
@@ -41,8 +41,8 @@
           <VBtn v-bind="props" class="v-btn--blank">문의사항</VBtn>
         </template>
         <VList class="overlay-menu">
-          <VListItem @click="$router.push('/field/ask')">기술/견적문의</VListItem>
-          <VListItem @click="$router.push('/field/pds')">자료실</VListItem>
+          <VListItem @click="$router.push('/inquiry/ask')">기술/견적문의</VListItem>
+          <VListItem @click="$router.push('/inquiry/pds')">자료실</VListItem>
         </VList>
       </VMenu>
 
