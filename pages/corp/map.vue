@@ -11,8 +11,6 @@
   </VRow>
 </template>
 <script lang="ts" setup>
-declare const naver: any
-
 const map = shallowRef()
 
 useHead({
@@ -20,17 +18,17 @@ useHead({
 })
 
 onMounted(async () => {
-  setTimeout(() => {
-    map.value = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(37.3663172, 127.1066211),
-      zoom: 18,
-    })
+  await getObjectAsync(() => globalThis.naver)
 
-    new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.365979, 127.1067124),
-      map: map.value,
-    })
-  }, 500)
+  map.value = new globalThis.naver.maps.Map('map', {
+    center: new globalThis.naver.maps.LatLng(37.3663172, 127.1066211),
+    zoom: 18,
+  })
+
+  new globalThis.naver.maps.Marker({
+    position: new globalThis.naver.maps.LatLng(37.365979, 127.1067124),
+    map: map.value,
+  })
 })
 
 const getObjectAsync = (fn: () => any) => {
