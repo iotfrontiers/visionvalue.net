@@ -6,7 +6,7 @@
       <!-- </div> -->
     </VCol>
     <VCol class="mt-10">
-      <span>경기도 성남시 분당구 성남대로 779번길6(이매동, KT분당지사) 1층 104-3호 </span>
+      <span>경기 성남시 분당구 성남대로331번길 8 9층 901호</span>
     </VCol>
   </VRow>
 </template>
@@ -22,12 +22,12 @@ useHead({
 onMounted(async () => {
   setTimeout(() => {
     map.value = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(37.3999, 127.1281),
+      center: new naver.maps.LatLng(37.3663172, 127.1066211),
       zoom: 18,
     })
 
     new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.3999, 127.1281),
+      position: new naver.maps.LatLng(37.365979, 127.1067124),
       map: map.value,
     })
   }, 500)

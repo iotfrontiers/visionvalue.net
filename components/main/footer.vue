@@ -16,7 +16,7 @@
             </VCol>
             <VCol>
               <span class="mail">
-                <a href="mailto:iot.frontier@gmail.com">iot.frontier@gmail.com</a>
+                <a href="mailto:jongju0920@kakao.com">jongju0920@kakao.com</a>
               </span>
             </VCol>
           </VRow>
@@ -40,8 +40,8 @@
     <div class="pt-0 flex-1-1-100">
       <VDivider color="white mt-10 mb-3" :thickness="2" />
 
-      FRONTIER | 대표전화 : 031-520-8060 | 팩스 : 0504-163-4451 | 이메일 : iot.frontier@gmail.com <br />
-      주소 : 경기도 성남시 분당구 성남대로 779번길6(이매동, KT분당지사) 1층 104-3호
+      FRONTIER | 대표전화 : 031-520-8060 | 팩스 : 0504-163-4451 | 이메일 : jongju0920@kakao.com <br />
+      주소 : 경기 성남시 분당구 성남대로331번길 8 9층 901호
     </div>
   </VFooter>
 </template>
