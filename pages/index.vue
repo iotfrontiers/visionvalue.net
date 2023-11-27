@@ -18,7 +18,7 @@
           <p class="title">Business Area</p>
           <p class="text-grey-lighten-1 mt-2">사업분야</p>
           <p class="text-grey-lighten-1 text-right more">
-            <VBtn class="v-btn--blank" @click="$router.push('/field/diplay')">
+            <VBtn class="v-btn--blank" @click="$router.push('/field/display')">
               <span>View More <VIcon icon="mdi-arrow-right-bold-circle" /></span>
             </VBtn>
           </p>
