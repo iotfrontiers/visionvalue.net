@@ -17,8 +17,13 @@
 <style lang="scss">
 .main-container {
   .about-us-row {
-    background: url('~/assets/img/main/about-bg.png');
     min-height: 334px;
+    background: url('~/assets/img/main/about-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
     flex-direction: column;
     padding-left: 95px;
     padding-top: 40px;

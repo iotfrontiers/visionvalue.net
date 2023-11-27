@@ -44,12 +44,12 @@
 <style lang="scss">
 .main-container {
   margin: 0;
-  // padding: 0;
+  padding-bottom: 0;
   min-width: 700px;
 
   .v-row.main-row {
     min-height: 1080px;
-    background-image: url('~/assets/img/main/banner1.png');
+    background-image: url('~/assets/img/main/banner-top.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

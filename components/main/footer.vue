@@ -1,5 +1,24 @@
 <template>
-  <VRow class="contact-us"> </VRow>
+  <VContainer :fluid="true" noGutters>
+    <VRow class="contact-us-row">
+      <VCol cols="12">
+        <div class="section-title">Contact Us</div>
+        <VDivider class="mt-4" :thickness="2" length="250px"></VDivider>
+      </VCol>
+      <VCol>
+        <!-- <v-container class="content">
+          <VRow justify="end">
+            <VCol>12</VCol>
+            <VCol>34</VCol>
+          </VRow>
+          <VRow justify="end">
+            <VCol>56</VCol>
+            <VCol>78</VCol>
+          </VRow>
+        </v-container> -->
+      </VCol>
+    </VRow>
+  </VContainer>
   <VFooter class="bg-grey-darken-4 d-flex flex-column align-stretch">
     <!-- <div>
       <v-btn v-for="icon in icons" :key="icon" class="mx-4" :icon="icon" variant="text"></v-btn>
@@ -19,5 +38,29 @@ const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
 <style lang="scss">
 footer.v-footer {
   padding: 0 95px 50px 95px;
+}
+
+.contact-us-row {
+  min-height: 335px;
+  background-image: url('/img/main-contact.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  padding-bottom: 0;
+  padding-left: 95px;
+  padding-top: 40px;
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .v-divider {
+    opacity: 1;
+  }
+
+  .content {
+  }
 }
 </style>

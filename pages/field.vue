@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrap">
-    <CommonPageHeader
+    <CommonPageContainer
       header-bg-img="banner-field.png"
       :tabItems="[
         { title: '응용 LED 디스플레이', targetUrl: '/field/display' },
@@ -10,7 +10,7 @@
       ]"
     >
       <NuxtPage />
-    </CommonPageHeader>
+    </CommonPageContainer>
   </div>
 </template>
 <script lang="ts" setup></script>

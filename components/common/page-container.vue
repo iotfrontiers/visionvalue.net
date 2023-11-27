@@ -33,16 +33,17 @@ const menuTabClicked = (menu: Tab) => {
 </script>
 
 <style lang="scss">
-.v-row.page-header-row {
-  min-height: 506px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-}
-
 .sub-page-container {
+  padding-bottom: 0;
   .sub-title {
+  }
+
+  .v-row.page-header-row {
+    min-height: 506px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
   }
 
   .content-wrap {

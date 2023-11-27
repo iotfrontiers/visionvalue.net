@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrap">
-    <CommonPageHeader
+    <CommonPageContainer
       header-bg-img="banner-commnity.png"
       :tabItems="[
         { title: '공지사항', targetUrl: '/community/notice' },
@@ -8,7 +8,7 @@
       ]"
     >
       <NuxtPage />
-    </CommonPageHeader>
+    </CommonPageContainer>
   </div>
 </template>
 <script lang="ts" setup></script>

@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrap">
-    <CommonPageHeader
+    <CommonPageContainer
       header-bg-img="banner-corp.png"
       :tabItems="[
         { title: '인사말', targetUrl: '/corp/introduce' },
@@ -10,7 +10,7 @@
       ]"
     >
       <NuxtPage />
-    </CommonPageHeader>
+    </CommonPageContainer>
   </div>
 </template>
 <script lang="ts" setup></script>

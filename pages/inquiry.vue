@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrap">
-    <CommonPageHeader
+    <CommonPageContainer
       header-bg-img="banner-inquiry.png"
       :tabItems="[
         { title: '기술/견적문의', targetUrl: '/inquiry/ask' },
@@ -8,7 +8,7 @@
       ]"
     >
       <NuxtPage />
-    </CommonPageHeader>
+    </CommonPageContainer>
   </div>
 </template>
 <script lang="ts" setup></script>
