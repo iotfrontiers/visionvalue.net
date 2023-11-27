@@ -1,7 +1,7 @@
 <template>
   <ul class="client-container">
-    <li v-for="i of 25">
-      <img :src="`/client/part_img${i}.jpg`" />
+    <li v-for="i of 29">
+      <img :src="`/client/group-img${i}.png`" />
     </li>
   </ul>
 </template>
@@ -14,6 +14,7 @@
   li {
     position: relative;
     width: 300px;
+    height: 100%;
     border: 1px solid #ddd;
     margin: 10px 20px 10px 0;
     list-style: none;
@@ -45,6 +46,7 @@
     img {
       border: 0;
       max-width: 100%;
+      vertical-align: middle;
     }
   }
 }
