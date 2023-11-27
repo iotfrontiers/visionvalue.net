@@ -10,6 +10,19 @@ export default defineNuxtConfig({
   typescript: {
     strict: false,
   },
+  runtimeConfig: {
+    notion: {
+      apiSecret: process.env.NOTION_API_SECRET,
+      version: process.env.NOTION_API_SECRET,
+      noticeDatabaseId: process.env.NOTION_NOTICE_DATABASE_ID,
+      noticeCacheDir: process.env.NOTION_NOTICE_CACHE_DIR,
+      newsDatabaseId: process.env.NOTION_NEWS_DATABASE_ID,
+      newsCacheDir: process.env.NOTION_NEWS_CACHE_DIR,
+      pdsDatabaseId: process.env.NOTION_PDS_DATABASE_ID,
+      pdsCacheDir: process.env.NOTION_PDS_CACHE_DIR,
+      askDatabaseId: process.env.NOTION_ASK_DATABASE_ID,
+    },
+  },
   hooks: {
     'pages:extend'(pages) {
       const communityPage = pages.find(p => p.name === 'community')
@@ -47,6 +60,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       meta: [{ name: 'viewport', content: 'width=1300,user-scalable=yes' }],
+      title: '(주) 프런티어',
     },
   },
   vuetify: {
