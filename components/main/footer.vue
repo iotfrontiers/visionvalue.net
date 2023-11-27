@@ -5,17 +5,30 @@
         <div class="section-title">Contact Us</div>
         <VDivider class="mt-4" :thickness="2" length="250px"></VDivider>
       </VCol>
-      <VCol>
-        <!-- <v-container class="content">
+      <VCol></VCol>
+      <VCol cols="7">
+        <v-container class="content">
           <VRow justify="end">
-            <VCol>12</VCol>
-            <VCol>34</VCol>
+            <VCol>
+              <span class="site">
+                <a href="www.frontiers.co.kr">www.frontiers.co.kr</a>
+              </span>
+            </VCol>
+            <VCol>
+              <span class="mail">
+                <a href="mailto:iot.frontier@gmail.com">iot.frontier@gmail.com</a>
+              </span>
+            </VCol>
           </VRow>
           <VRow justify="end">
-            <VCol>56</VCol>
-            <VCol>78</VCol>
+            <VCol
+              ><span class="phone"><a href="tel:031-520-8060">031-520-8060</a></span></VCol
+            >
+            <VCol
+              ><span class="fax"><a href="fax:0504-163-4451">0504-163-4451</a></span></VCol
+            >
           </VRow>
-        </v-container> -->
+        </v-container>
       </VCol>
     </VRow>
   </VContainer>
@@ -27,7 +40,7 @@
     <div class="pt-0 flex-1-1-100">
       <VDivider color="white mt-10 mb-3" :thickness="2" />
 
-      FRONTIER | 대표전화 : 031-520-8060 | 팩스 : 0504-183-4451 | 이메일 : iot.frontier@gmail.com <br />
+      FRONTIER | 대표전화 : 031-520-8060 | 팩스 : 0504-163-4451 | 이메일 : iot.frontier@gmail.com <br />
       주소 : 경기도 성남시 분당구 성남대로 779번길6(이매동, KT분당지사) 1층 104-3호
     </div>
   </VFooter>
@@ -61,6 +74,37 @@ footer.v-footer {
   }
 
   .content {
+    span {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      font-size: 20px;
+      font-weight: 500;
+      min-width: 250px;
+
+      &.site {
+        background: url('/icon/web-site.png') no-repeat 0 0/1.6rem;
+      }
+
+      &.mail {
+        background: url('/icon/mail.png') no-repeat 0 0/1.6rem;
+      }
+
+      &.phone {
+        background: url('/icon/phone.png') no-repeat 0 0/1.4rem;
+      }
+
+      &.fax {
+        background: url('/icon/fax.png') no-repeat 0 0/1.6rem;
+      }
+
+      &::before {
+        width: 2.6rem;
+        height: 1.6rem;
+        content: '';
+        display: inline-flex;
+      }
+    }
   }
 }
 </style>
