@@ -1,19 +1,19 @@
 <template>
   <div>
-    <VRow class="mb-13 mt-6">
+    <VRow noGutters class="mb-13 mt-6">
       <VCol :cols="12">
-        <img src="/img/field-dev.png" style="max-width: 1300px" />
+        <img src="/img/field-dev.png" />
       </VCol>
     </VRow>
-    <VRow>
+    <VRow noGutters>
       <p class="font-weight-medium">
-        개발(S/W & H/W) 사업 영역은 소프트웨어와 하드웨어의 통합 개발에 중점을 두고 있습니다. 이 분야는 최신 기술을 활용하여 효율적이고 혁신적인
-        제품을 개발합니다.<br />
-        이 사업 영역은 기술 혁신을 선도하며, 다양한 산업 분야에서 필요한 소프트웨어와 하드웨어의 맞춤형 솔루션을 제공하는 데 중점을 두고 있습니다.
+        개발(S/W & H/W) 사업 영역은 소프트웨어와 하드웨어의 통합 개발에 중점을 두고 있습니다.<br />
+        이 분야는 최신 기술을 활용하여 효율적이고 혁신적인 제품을 개발합니다.<br />
+        이 사업 영역은 기술 혁신을 선도하며, 다양한 산업 분야에서 필요한 소프트웨어와 하드웨어의 맞춤형 솔루션을 제공하는 데 중점을 두고 있습니다.<br />
         이를 통해 고객의 다양한 요구를 충족시키고, 시장 경쟁력을 강화합니다.
       </p>
     </VRow>
-    <VRow class="ml-5 mt-10">
+    <VRow noGutters class="ml-5 mt-10">
       <ul>
         <li>
           <span class="font-weight-bold">소프트웨어 개발</span>: 사용자 중심의 소프트웨어 솔루션 개발에 초점을 맞춥니다. 이는 데이터 관리, 시스템

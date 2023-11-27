@@ -59,6 +59,11 @@ const menuTabClicked = (menu: Tab) => {
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0 10px;
+
+    img {
+      max-width: 100%;
+    }
   }
 }
 </style>

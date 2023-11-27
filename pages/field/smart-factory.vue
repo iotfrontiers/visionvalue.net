@@ -1,19 +1,19 @@
 <template>
   <div>
-    <VRow class="mb-13 mt-6">
+    <VRow noGutters class="mb-13 mt-6">
       <VCol :cols="12">
-        <img src="/img/field-smart.png" style="max-width: 1300px" />
+        <img src="/img/field-smart.png" />
       </VCol>
     </VRow>
-    <VRow>
+    <VRow noGutters>
       <p class="font-weight-medium">
         회사의 주요 사업 영역 중 하나인 스마트 팩토리, 빌딩 자동화, 그리고 HMI (Human-Machine Interface)는 첨단 기술을 활용하여 생산성을 극대화하고,
         사용자 경험을 혁신하는 데 중점을 두고 있습니다.<br />
-        이러한 사업 영역들은 기술적 혁신과 사용자 중심의 설계를 바탕으로 하여, 산업의 미래를 형성하는 데 중요한 역할을 하고 있습니다. 회사는 이를 통해
-        고객에게 최고의 가치를 제공하고, 지속 가능한 발전을 추구하는 데 전념하고 있습니다.
+        이러한 사업 영역들은 기술적 혁신과 사용자 중심의 설계를 바탕으로 하여, 산업의 미래를 형성하는 데 중요한 역할을 하고 있습니다.<br />
+        회사는 이를 통해 고객에게 최고의 가치를 제공하고, 지속 가능한 발전을 추구하는 데 전념하고 있습니다.
       </p>
     </VRow>
-    <VRow class="ml-5 mt-10">
+    <VRow noGutters class="ml-5 mt-10">
       <ul>
         <li>
           <span class="font-weight-bold">스마트 팩토리</span>: 이 분야에서는 고도의 자동화, 실시간 데이터 분석, 그리고 인공지능 기술을 통합하여 제조

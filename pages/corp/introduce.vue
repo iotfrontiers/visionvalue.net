@@ -9,7 +9,7 @@
     </VRow>
     <VRow class="mb-13 mt-6">
       <VCol :cols="12">
-        <img src="/img/corp-intro.png" style="max-width: 1300px" />
+        <img src="/img/corp-intro.png" />
       </VCol>
     </VRow>
     <VRow>
