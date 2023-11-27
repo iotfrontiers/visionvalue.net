@@ -4,8 +4,10 @@ import { NotionNotice, NotionListResponse, NotionPageRequest } from '~/composabl
 import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs'
 
 export const createNotionClient = () => {
+  const { notion } = useRuntimeConfig()
+
   return new Client({
-    auth: process.env.NOTION_API_SECRET,
+    auth: notion.apiSecret,
   })
 }
 

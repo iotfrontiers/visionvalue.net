@@ -4,6 +4,7 @@ import { NotionAskReqeust } from '~/composables/notion'
  * 기술/견적 문의
  */
 export default defineEventHandler(async event => {
+  const { notion: notionConfig } = useRuntimeConfig()
   const notion = createNotionClient()
   const body = (await readBody(event)) as NotionAskReqeust
 
@@ -13,7 +14,7 @@ export default defineEventHandler(async event => {
 
   notion.pages.create({
     parent: {
-      database_id: process.env.NOTION_ASK_DATABASE_ID,
+      database_id: notionConfig.askDatabaseId,
     },
     properties: {
       제목: {
