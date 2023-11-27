@@ -1,6 +1,6 @@
 <template>
   <div class="top-menu d-flex justify-space-between flex-grow-1 align-center">
-    <div class="font-weight-bold">FRONTIER</div>
+    <div class="logo"></div>
     <div class="d-flex justify-space-between menus align-center">
       <VMenu transition="scroll-y-transition">
         <template v-slot:activator="{ props }">
@@ -59,6 +59,14 @@ const showDrawer = useMainDrawerOpenedState()
   max-height: 50px;
   min-height: 50px;
   font-weight: 600;
+
+  .logo {
+    width: 100%;
+    height: 100%;
+    background-image: url('/logo/logo-white.png');
+    background-repeat: no-repeat;
+    background-size: 7rem;
+  }
 
   .menus {
     gap: 20px;
