@@ -1,6 +1,6 @@
 <template>
   <div class="top-menu d-flex justify-space-between flex-grow-1 align-center">
-    <div class="logo"></div>
+    <div class="logo" @click="() => logoClick()"></div>
     <div class="d-flex justify-space-between menus align-center">
       <VMenu transition="scroll-y-transition">
         <template v-slot:activator="{ props }">
@@ -52,6 +52,12 @@
 </template>
 <script setup lang="ts">
 const showDrawer = useMainDrawerOpenedState()
+const router = useRouter()
+
+function logoClick() {
+  router.push('/')
+  showDrawer.value = false
+}
 </script>
 <style lang="scss">
 .top-menu {
