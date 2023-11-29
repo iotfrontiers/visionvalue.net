@@ -72,6 +72,7 @@ function logoClick() {
     background-image: url('/logo/logo-white.png');
     background-repeat: no-repeat;
     background-size: 7rem;
+    cursor: pointer;
   }
 
   .menus {

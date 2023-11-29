@@ -1,12 +1,12 @@
 <template>
   <VContainer :fluid="true" noGutters>
     <VRow class="contact-us-row">
-      <VCol cols="12">
+      <VCol cols="12" style="height: 10px; padding-bottom: 0">
         <div class="section-title">Contact Us</div>
         <VDivider class="mt-4" :thickness="2" length="250px"></VDivider>
       </VCol>
-      <VCol></VCol>
-      <VCol cols="7">
+      <VCol style="padding-top: 0"></VCol>
+      <VCol cols="7" style="padding-top: 0">
         <v-container class="content">
           <VRow justify="end">
             <VCol>
@@ -40,7 +40,9 @@
     <div class="pt-0 flex-1-1-100">
       <VDivider color="white mt-10 mb-3" :thickness="2" />
 
-      FRONTIER | 대표전화 : 031-520-8060 | 팩스 : 0504-163-4451 | 이메일 : jongju0920@kakao.com <br />
+      FRONTIER <span class="ml-1 mr-1">|</span> 대표전화 : <a href="tel:031-520-8060">031-520-8060</a> <span class="ml-1 mr-1">|</span> 팩스 :
+      <a href="fax:0504-163-4451">0504-163-4451</a> <span class="ml-1 mr-1">|</span> 이메일 :
+      <a href="mailto:jongju0920@kakao.com">jongju0920@kakao.com</a> <br />
       주소 : 경기 성남시 분당구 성남대로331번길 8 9층 901호
     </div>
   </VFooter>
@@ -51,6 +53,11 @@ const icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
 <style lang="scss">
 footer.v-footer {
   padding: 0 95px 50px 95px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .contact-us-row {
@@ -81,6 +88,11 @@ footer.v-footer {
       font-size: 20px;
       font-weight: 500;
       min-width: 250px;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
 
       &.site {
         background: url('/icon/web-site.png') no-repeat 0 0/1.6rem;
