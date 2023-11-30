@@ -5499,6 +5499,13 @@ vite-plugin-checker@^0.6.2:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
+vite-plugin-compression2@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-compression2/-/vite-plugin-compression2-0.11.0.tgz#341e13902c9e89cbbf7bc4bfc7b651f29c0cf517"
+  integrity sha512-U6oEyRXZD26BynOgD/tStNTbQOLPt96aQNj/gdJTicKVYCQCdlV7QdmSF7VEhSyjiS59pQRhiMBu/uajprxWLA==
+  dependencies:
+    "@rollup/pluginutils" "^5.0.2"
+
 vite-plugin-inspect@^0.7.42:
   version "0.7.42"
   resolved "https://registry.yarnpkg.com/vite-plugin-inspect/-/vite-plugin-inspect-0.7.42.tgz#e055ad2ff82f3eca2f101fcfb29b5fabfe1e7366"

@@ -1,3 +1,5 @@
+import compression from 'vite-plugin-compression2'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
@@ -53,7 +55,12 @@ export default defineNuxtConfig({
       }
     },
     'vite:extendConfig'(config) {
-      config.optimizeDeps.include.push('fs-extra')
+      config.plugins.push(
+        compression({
+          include: [/\.(js)$/, /\.(css)$/],
+          threshold: 1400,
+        }),
+      )
     },
   },
   app: {
