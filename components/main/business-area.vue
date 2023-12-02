@@ -10,7 +10,7 @@
       </div>
       <VRow class="buttons" align="center">
         <VCol>
-          <VBtn>VIEW MORE</VBtn>
+          <VBtn @click="$router.push('/field/display')">VIEW MORE</VBtn>
         </VCol>
         <VCol style="text-align: justify">
           <v-pagination v-model="selectedIdx" :length="4" color="brown-darken-4" @update:modelValue="onUpdatePageNum"></v-pagination>

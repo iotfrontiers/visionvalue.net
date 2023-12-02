@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
 import { NotionNotice, NotionListResponse, NotionPageRequest } from '~/composables/notion'
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFile } from 'node:fs'
 
 export const createNotionClient = () => {
   const { notion } = useRuntimeConfig()
@@ -131,7 +131,7 @@ export const createBoardDetailApi = async (event: any, cacheDir: string) => {
     }
 
     if (!existsSync(cacheFilePath)) {
-      writeFileSync(cacheFilePath, JSON.stringify(data), { encoding: 'utf-8' })
+      writeFile(cacheFilePath, JSON.stringify(data), { encoding: 'utf-8' }, () => {})
     }
 
     return data
