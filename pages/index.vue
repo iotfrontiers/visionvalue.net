@@ -1,10 +1,9 @@
 <template>
-  <VContainer :fluid="true" class="main-container">
+  <!-- <VContainer :fluid="true" class="main-container">
     <VRow class="main-row">
       <MainHeader />
       <section class="banner-text text-white">
         <p>We are IT experts</p>
-        <!-- <p class="title">FRONTIER</p> -->
         <p class="logo"></p>
         <p style="line-height: 1.6">
           프런티어는 숙련된 개발자의 개발, 제조경험과
@@ -39,14 +38,13 @@
     <MainAboutUs />
     <MainHistory />
     <MainNotice />
-  </VContainer>
+  </VContainer> -->
 </template>
 <script setup lang="ts"></script>
 <style lang="scss">
 .main-container {
   margin: 0;
   padding-bottom: 0;
-  min-width: 700px;
 
   .v-row.main-row {
     min-height: 1080px;

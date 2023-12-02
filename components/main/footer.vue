@@ -3,10 +3,10 @@
     <VRow class="contact-us-row">
       <VCol cols="12" style="height: 10px; padding-bottom: 0">
         <div class="section-title">Contact Us</div>
-        <VDivider class="mt-4" :thickness="2" length="250px"></VDivider>
+        <VDivider :thickness="2" length="250px"></VDivider>
       </VCol>
-      <VCol style="padding-top: 0"></VCol>
-      <VCol cols="7" style="padding-top: 0">
+      <!-- <VCol style="padding-top: 0" :sm="0" :md="5"></VCol> -->
+      <VCol :offset-md="5" :md="7" :sm="12" style="padding-top: 0">
         <v-container class="content">
           <VRow justify="end">
             <VCol>
@@ -58,6 +58,10 @@ footer.v-footer {
     color: #fff;
     text-decoration: none;
   }
+
+  @media (max-width: 630px) {
+    padding: 0 3vw 50px 3vw;
+  }
 }
 
 .contact-us-row {
@@ -68,8 +72,24 @@ footer.v-footer {
   background-position: center;
   position: relative;
   padding-bottom: 0;
-  padding-left: 95px;
-  padding-top: 40px;
+  // padding-left: 95px;
+  // padding-top: 40px;
+
+  padding-left: 5vh;
+  padding-top: 5vh;
+
+  @media (max-width: 630px) {
+    padding-left: 1vh;
+    padding-top: 1vh;
+  }
+
+  .v-divider {
+    margin-top: 16px;
+
+    @media (max-width: 630px) {
+      margin-top: 0;
+    }
+  }
 
   .section-title {
     font-size: 32px;
@@ -81,6 +101,10 @@ footer.v-footer {
   }
 
   .content {
+    @media (max-width: 630px) {
+      padding-top: 9vh;
+    }
+
     span {
       display: flex;
       align-items: center;
