@@ -1,5 +1,5 @@
 <template>
-  <!-- <VContainer :fluid="true" class="main-container">
+  <VContainer :fluid="true" class="main-container">
     <VRow class="main-row">
       <MainHeader />
       <section class="banner-text text-white">
@@ -34,11 +34,11 @@
         </VCol>
       </VRow>
     </VRow>
-    <MainBusinessArea />
+    <!-- <MainBusinessArea />
     <MainAboutUs />
     <MainHistory />
-    <MainNotice />
-  </VContainer> -->
+    <MainNotice /> -->
+  </VContainer>
 </template>
 <script setup lang="ts"></script>
 <style lang="scss">
@@ -47,7 +47,7 @@
   padding-bottom: 0;
 
   .v-row.main-row {
-    min-height: 1080px;
+    min-height: min(1080px, max(100vw, 700px));
     background-image: url('~/assets/img/main/banner-top.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -56,9 +56,10 @@
 
     .banner-text {
       position: absolute;
-      top: 380px;
-      left: 95px;
+      top: min(380px, 30vw);
+      left: min(95px, 5vw);
       font-size: 20px;
+      margin-right: 5vw;
 
       p {
         margin: 5px 0;
@@ -84,11 +85,13 @@
     .quick-button-row {
       position: absolute;
       left: 95px;
+      left: min(95px, 5vw);
       bottom: 5px;
-      gap: 30px;
+      gap: min(30px, 1vw);
 
       .v-col {
-        min-width: 260px;
+        // min-width: 260px;
+        min-width: min(95px, 80vw);
         border-right: 1px solid #fff;
         padding-right: 30px;
 
@@ -97,12 +100,15 @@
 
           &.title {
             font-weight: 700;
-            font-size: 25px;
+            // font-size: 25px;
+            font-size: 1.2rem;
           }
 
           &.more {
-            margin-top: 20px;
-            margin-bottom: 20px;
+            // margin-top: 20px;
+            // margin-bottom: 20px;
+            margin-top: min(20px, 1vw);
+            margin-bottom: min(20px, 1vw);
           }
           &.more .v-icon {
             margin-left: 15px;
