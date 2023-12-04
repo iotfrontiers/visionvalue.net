@@ -7,7 +7,7 @@ export const createNotionClient = () => {
   const { notion } = useRuntimeConfig()
 
   return new Client({
-    auth: notion.apiSecret,
+    auth: decryptString(notion.apiSecret),
   })
 }
 

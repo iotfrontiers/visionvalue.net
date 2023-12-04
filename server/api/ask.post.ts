@@ -12,7 +12,7 @@ export default defineEventHandler(async event => {
     throw new Error('유효하지 않은 요청입니다.')
   }
 
-  notion.pages.create({
+  await notion.pages.create({
     parent: {
       database_id: notionConfig.askDatabaseId,
     },
@@ -69,4 +69,13 @@ export default defineEventHandler(async event => {
       },
     ],
   })
+
+  let mailContent = `<p>- 작성자: ${body.author}</p>
+  <p>- 작성자 이메일: ${body.email}</p>
+  <p>- 작성자 전화번호: ${body.contact}</p>
+  <p></p>
+  <p>${body.content}</p>
+  `
+
+  await sendEmail('프론티어 기술/견적문의 : ' + body.title, mailContent)
 })
