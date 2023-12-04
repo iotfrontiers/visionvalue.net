@@ -25,8 +25,11 @@
     position: relative;
 
     flex-direction: column;
-    padding-left: 95px;
-    padding-top: 40px;
+    // padding-left: 95px;
+    // padding-top: 40px;
+
+    padding-left: min(95px, 5vw);
+    padding-top: min(40px, 3vw);
 
     .section-title {
       // font-size: 32px;

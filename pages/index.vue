@@ -34,10 +34,10 @@
         </VCol>
       </VRow>
     </VRow>
-    <!-- <MainBusinessArea />
+    <MainBusinessArea />
     <MainAboutUs />
     <MainHistory />
-    <MainNotice /> -->
+    <MainNotice />
   </VContainer>
 </template>
 <script setup lang="ts"></script>
