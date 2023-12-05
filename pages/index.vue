@@ -4,7 +4,6 @@
       <MainHeader />
       <section class="banner-text text-white">
         <p>We are IT experts</p>
-        <!-- <p class="title">FRONTIER</p> -->
         <p class="logo"></p>
         <p style="line-height: 1.6">
           프런티어는 숙련된 개발자의 개발, 제조경험과
@@ -46,10 +45,9 @@
 .main-container {
   margin: 0;
   padding-bottom: 0;
-  min-width: 700px;
 
   .v-row.main-row {
-    min-height: 1080px;
+    min-height: min(1080px, max(100vw, 700px));
     background-image: url('~/assets/img/main/banner-top.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -58,9 +56,10 @@
 
     .banner-text {
       position: absolute;
-      top: 380px;
-      left: 95px;
+      top: min(380px, 30vw);
+      left: min(95px, 5vw);
       font-size: 20px;
+      margin-right: 5vw;
 
       p {
         margin: 5px 0;
@@ -86,11 +85,13 @@
     .quick-button-row {
       position: absolute;
       left: 95px;
+      left: min(95px, 5vw);
       bottom: 5px;
-      gap: 30px;
+      gap: min(30px, 1vw);
 
       .v-col {
-        min-width: 260px;
+        // min-width: 260px;
+        min-width: min(95px, 80vw);
         border-right: 1px solid #fff;
         padding-right: 30px;
 
@@ -99,12 +100,15 @@
 
           &.title {
             font-weight: 700;
-            font-size: 25px;
+            // font-size: 25px;
+            font-size: 1.2rem;
           }
 
           &.more {
-            margin-top: 20px;
-            margin-bottom: 20px;
+            // margin-top: 20px;
+            // margin-bottom: 20px;
+            margin-top: min(20px, 1vw);
+            margin-bottom: min(20px, 1vw);
           }
           &.more .v-icon {
             margin-left: 15px;

@@ -4,7 +4,7 @@
     <div class="d-flex justify-space-between menus align-center">
       <VMenu transition="scroll-y-transition">
         <template v-slot:activator="{ props }">
-          <VBtn v-bind="props" class="v-btn--blank">기업소개</VBtn>
+          <VBtn v-bind="props" class="v-btn--blank gnb-menu-btn">기업소개</VBtn>
         </template>
         <VList class="overlay-menu">
           <VListItem @click="$router.push('/corp/introduce')">인사말</VListItem>
@@ -16,7 +16,7 @@
 
       <VMenu transition="scroll-y-transition">
         <template v-slot:activator="{ props }">
-          <VBtn v-bind="props" class="v-btn--blank">사업분야</VBtn>
+          <VBtn v-bind="props" class="v-btn--blank gnb-menu-btn">사업분야</VBtn>
         </template>
         <VList class="overlay-menu">
           <VListItem @click="$router.push('/field/display')">응용 LED 디스플레이</VListItem>
@@ -28,7 +28,7 @@
 
       <VMenu transition="scroll-y-transition">
         <template v-slot:activator="{ props }">
-          <VBtn v-bind="props" class="v-btn--blank">커뮤니티</VBtn>
+          <VBtn v-bind="props" class="v-btn--blank gnb-menu-btn">커뮤니티</VBtn>
         </template>
         <VList class="overlay-menu">
           <VListItem @click="$router.push('/community/notice')">공지사항</VListItem>
@@ -38,7 +38,7 @@
 
       <VMenu transition="scroll-y-transition">
         <template v-slot:activator="{ props }">
-          <VBtn v-bind="props" class="v-btn--blank">문의사항</VBtn>
+          <VBtn v-bind="props" class="v-btn--blank gnb-menu-btn">문의사항</VBtn>
         </template>
         <VList class="overlay-menu">
           <VListItem @click="$router.push('/inquiry/ask')">기술/견적문의</VListItem>
@@ -61,10 +61,17 @@ function logoClick() {
 </script>
 <style lang="scss">
 .top-menu {
-  margin: 54px 0 0 95px;
+  // margin: 54px 0 0 95px;
+  margin: min(4vh, 54px) 0 0 min(5vw, 95px);
   max-height: 50px;
   min-height: 50px;
   font-weight: 600;
+
+  @media screen and (max-width: 600px) {
+    .gnb-menu-btn {
+      display: none;
+    }
+  }
 
   .logo {
     width: 100%;
@@ -76,7 +83,8 @@ function logoClick() {
   }
 
   .menus {
-    gap: 20px;
+    // gap: 20px;
+    gap: min(20px, 1vw);
   }
 }
 

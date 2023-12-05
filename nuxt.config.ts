@@ -3,7 +3,7 @@ import compression from 'vite-plugin-compression2'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
-  devtools: { enabled: true },
+  // devtools: { enabled: true },
   modules: ['@invictus.codes/nuxt-vuetify', 'nuxt-swiper'],
   // spaLoadingTemplate: true,
   routeRules: {
@@ -71,12 +71,13 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      meta: [{ name: 'viewport', content: 'width=1300,user-scalable=yes' }],
+      meta: [{ name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' }],
       title: '(주) 프런티어',
     },
   },
   vuetify: {
     moduleOptions: {
+      autoImport: true,
       // styles: {
       //   configFile: '~/assets/main.scss',
       // },

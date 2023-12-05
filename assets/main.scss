@@ -1,8 +1,8 @@
-@import url('pretendard/dist/web/static/pretendard.css');
-@import url('./buttons.scss');
-@import url('./transition.scss');
-@import url('./markdown.scss');
-@import url('./input.scss');
+@use 'pretendard/dist/web/static/pretendard.css';
+@use 'buttons';
+@use 'transition';
+@use 'markdown';
+@use 'input.scss';
 
 * {
   font-family: Pretendard;
@@ -22,7 +22,7 @@ body {
   width: 100%;
 
   .section {
-    font-size: 23px;
+    font-size: min(23px, max(5vw, 12px));
     line-height: 1.8;
   }
 }

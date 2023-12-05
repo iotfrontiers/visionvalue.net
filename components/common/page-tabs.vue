@@ -73,7 +73,7 @@ watch(
 .tabs .tab {
   text-align: center;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: min(1.2rem, max(4vw, 10px));
   font-weight: 500;
 
   &:hover {

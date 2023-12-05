@@ -1,12 +1,12 @@
 <template>
   <VRow no-gutters>
-    <VCol :cols="12" align-self="center">
-      <!-- <div class="map-container"> -->
-      <div id="map" style="width: 80%; height: 55vh"></div>
-      <!-- </div> -->
-    </VCol>
-    <VCol class="mt-10">
+    <VCol class="mb-10">
       <span>경기 성남시 분당구 성남대로331번길 8 9층 901호</span>
+    </VCol>
+    <VCol :cols="12" align="center">
+      <!-- <div class="map-container"> -->
+      <div id="map" style="width: 90%; height: 55vh"></div>
+      <!-- </div> -->
     </VCol>
   </VRow>
 </template>

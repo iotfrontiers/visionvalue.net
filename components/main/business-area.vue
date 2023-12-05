@@ -74,17 +74,20 @@ function onActiveIndexChange(obj: any) {
   .v-row.business-row {
     background-color: #fff;
     color: #000;
-    padding: 70px 0 70px 95px;
+    padding: min(70px, 5vw) 0 min(70px, 5vw) min(90px, 7vw);
+    // padding: 70px 0 70px 95px;
 
     .left-col {
       // max-width: 300px;
-      margin-right: 100px;
+      // margin-right: 100px;
+      margin-right: min(100px, 6vw);
       min-width: 200px;
       margin-bottom: 20px;
 
       .section-title {
         // font-weight: 700;
         // font-size: 25px;
+        font-size: 2rem;
         padding: 20px 0;
         border-bottom: 1px solid #000;
       }
@@ -128,6 +131,7 @@ function onActiveIndexChange(obj: any) {
     }
 
     .swiper-container {
+      width: 100%;
       .swiper-slide {
         width: 340px;
       }
