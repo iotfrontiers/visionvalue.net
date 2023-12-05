@@ -168,6 +168,7 @@ onMounted(() => init())
   th {
     background-color: #eeeeee;
     border-bottom: 1px solid #ddd;
+    min-width: 120px;
   }
 
   td {

@@ -22,7 +22,7 @@ export default defineEventHandler(async event => {
         title: [
           {
             text: {
-              content: body.title,
+              content: body.title || '',
             },
           },
         ],
@@ -32,7 +32,7 @@ export default defineEventHandler(async event => {
         rich_text: [
           {
             text: {
-              content: body.author,
+              content: body.author || '',
             },
           },
         ],
@@ -46,7 +46,7 @@ export default defineEventHandler(async event => {
         rich_text: [
           {
             text: {
-              content: body.contact,
+              content: body.contact || '',
             },
           },
         ],
@@ -61,7 +61,7 @@ export default defineEventHandler(async event => {
             {
               type: 'text',
               text: {
-                content: body.content,
+                content: body.content || '',
               },
             },
           ],
@@ -70,11 +70,11 @@ export default defineEventHandler(async event => {
     ],
   })
 
-  let mailContent = `<p>- 작성자: ${body.author}</p>
-  <p>- 작성자 이메일: ${body.email}</p>
-  <p>- 작성자 전화번호: ${body.contact}</p>
+  let mailContent = `<p>- 작성자: ${body.author || ''}</p>
+  <p>- 작성자 이메일: ${body.email || ''}</p>
+  <p>- 작성자 전화번호: ${body.contact || ''}</p>
   <p></p>
-  <p>${body.content}</p>
+  <p>${body.content || ''}</p>
   `
 
   await sendEmail('프론티어 기술/견적문의 : ' + body.title, mailContent)
