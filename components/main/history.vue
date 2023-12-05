@@ -39,7 +39,8 @@ const resources = [
   .v-row.history-row {
     background-color: #fff;
     color: #000;
-    padding: 30px 95px 70px 95px;
+    // padding: 30px 95px 70px 95px;
+    padding: 30px min(5vw, 95px) 70px min(5vw, 95px);
 
     .section-title {
       text-align: center;
@@ -59,7 +60,8 @@ const resources = [
       .item-body-content {
         font-size: 18px;
         p {
-          height: 30px;
+          // height: 30px;
+          line-height: 30px;
         }
         .item-body-date {
           font-weight: 500;

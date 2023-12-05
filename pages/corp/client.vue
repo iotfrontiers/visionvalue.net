@@ -1,5 +1,5 @@
 <template>
-  <ul class="client-container">
+  <ul class="client-container justify-center">
     <li v-for="i of 29">
       <img :src="`/client/group-img${i}.png`" />
     </li>

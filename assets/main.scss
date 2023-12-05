@@ -22,7 +22,7 @@ body {
   width: 100%;
 
   .section {
-    font-size: 23px;
+    font-size: min(23px, max(5vw, 12px));
     line-height: 1.8;
   }
 }

@@ -6,41 +6,8 @@
     :itemsPerPage="pageSize"
     :itemsPerPageOptions="[]"
     selectStrategy="single"
-    :headers="[
-      {
-        title: '번호',
-        key: 'num',
-        align: 'center',
-        width: 80,
-        sortable: false,
-      },
-      {
-        title: '제목',
-        key: 'title',
-        sortable: false,
-      },
-      {
-        title: '작성자',
-        key: 'author',
-        align: 'center',
-        width: 100,
-        sortable: false,
-      },
-      {
-        title: '조회',
-        key: 'viewCnt',
-        align: 'center',
-        width: 100,
-        sortable: false,
-      },
-      {
-        title: '작성일',
-        key: 'date',
-        align: 'center',
-        width: 150,
-        sortable: false,
-      },
-    ]"
+    density="compact"
+    :headers="headers"
   >
     <template #bottom></template>
     <template #item.title="{ value, item }">
@@ -51,6 +18,7 @@
 
 <script setup lang="ts">
 import type { NotionListResponse, NotionNotice } from '~/composables/notion'
+import { useDisplay } from 'vuetify'
 
 const props = withDefaults(
   defineProps<{
@@ -89,6 +57,46 @@ async function loadNotice() {
 }
 
 loadNotice()
+
+// for responsibiltiy
+const { xs: mobile } = useDisplay()
+const headers = computed(() => {
+  return [
+    {
+      title: '번호',
+      key: 'num',
+      align: 'center',
+      width: 80,
+      sortable: false,
+    },
+    {
+      title: '제목',
+      key: 'title',
+      sortable: false,
+    },
+    {
+      title: '작성자',
+      key: 'author',
+      align: 'center',
+      width: 100,
+      sortable: false,
+    },
+    {
+      title: '조회',
+      key: 'viewCnt',
+      align: 'center',
+      width: 100,
+      sortable: false,
+    },
+    {
+      title: '작성일',
+      key: 'date',
+      align: 'center',
+      width: 150,
+      sortable: false,
+    },
+  ].filter(header => (!mobile.value ? true : ['title', 'viewCnt'].includes(header.key)))
+})
 </script>
 
 <style lang="scss">

@@ -72,6 +72,7 @@ export default defineNuxtConfig({
   },
   vuetify: {
     moduleOptions: {
+      autoImport: true,
       // styles: {
       //   configFile: '~/assets/main.scss',
       // },

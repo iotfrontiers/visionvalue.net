@@ -13,7 +13,7 @@
       </VCol>
     </VRow>
     <VRow>
-      <VCol>
+      <VCol :cols="12" md="" xl="" sm="">
         <p>
           프런티어는 “사람과 기술”을 중시하는 사상을 가지고 2019년 설립되었으며, 신뢰도 높은 IT제품을 기반으로 고객과 함께 성장해 왔습니다. 최근
           글로벌 환경에서 불확실성과 복잡성이 더해지는 가운데 클라우드,인공지능, 빅데이터 등 최신 IT 기술이 산업 전반에 활용 되는 디지털 대전환의
@@ -25,8 +25,9 @@
           경쟁력을 지속적으로 강화해야 합니다.
         </p>
       </VCol>
-      <v-divider class="ms-2 me-2 mt-4 mb-4" vertical></v-divider>
-      <VCol>
+      <v-divider class="ms-2 me-2 mt-4 mb-4" :vertical="false" v-if="mobile"></v-divider>
+      <v-divider class="ms-2 me-2 mt-4 mb-4" :vertical="true" v-if="!mobile"></v-divider>
+      <VCol :cols="12" md="" xl="" sm="">
         <p>
           저희는 고객의 요구를 깊게 충분히 이해하고, 당사의 기술을 통한 고객 니즈에 신속하게 대응할 수 있는 독창적인 서비스로 고객에게 신뢰 받는
           기업으로 자리 매김 하고자 합니다. 프런티어와 함께하는 고객님들에게 최고의 서비스를 제공하고자 노력하겠습니다.
@@ -43,4 +44,8 @@
     </VRow>
   </div>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useDisplay } from 'vuetify'
+
+const { xs: mobile } = useDisplay()
+</script>
