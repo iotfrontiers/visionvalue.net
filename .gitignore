@@ -131,3 +131,5 @@ dist
 
 
 .output
+
+server/api/crypto.get.ts
