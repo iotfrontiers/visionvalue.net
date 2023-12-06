@@ -1,7 +1,16 @@
 /**
  * 자료실 상세 조회
  */
-export default defineEventHandler(async event => {
-  const { notion: notionConfig } = useRuntimeConfig()
-  return createBoardDetailApi(event, notionConfig.pdsCacheDir)
-})
+export default cachedEventHandler(
+  async event => {
+    const { notion: notionConfig } = useRuntimeConfig()
+    return createBoardDetailApi(event, notionConfig.pdsCacheDir)
+  },
+  {
+    maxAge: 600,
+    getKey(event) {
+      const query = getQuery(event)
+      return query['id'] as string
+    },
+  },
+)
