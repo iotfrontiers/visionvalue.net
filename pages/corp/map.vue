@@ -1,5 +1,5 @@
 <template>
-  <VRow no-gutters>
+  <VRow class="maps-wrap" no-gutters>
     <VCol class="mb-10">
       <span>경기 성남시 분당구 성남대로331번길 8 9층 901호</span>
     </VCol>
@@ -25,10 +25,36 @@ onMounted(async () => {
     zoom: 18,
   })
 
-  new globalThis.naver.maps.Marker({
+  const marker = new globalThis.naver.maps.Marker({
     position: new globalThis.naver.maps.LatLng(37.365979, 127.1067124),
     map: map.value,
   })
+
+  const contentString = [
+    '<div class="iw_inner">',
+    '   <h3>(주) 프런티어</h3>',
+    '   <p>경기 성남시 분당구 성남대로331번길 8 9층 901호<br />',
+
+    '       tel: <a href="tel:031-520-8060">031-520-8060</a><br />',
+    '       e-mail: <a href="mailto:jongju0920@kakao.com">jongju0920@kakao.com</a>',
+    '   </p>',
+    '</div>',
+  ].join('')
+
+  const infoWindow = new globalThis.naver.maps.InfoWindow({
+    content: contentString,
+    // maxWidth: 478,
+  })
+
+  globalThis.naver.maps.Event.addListener(marker, 'click', function (e) {
+    if (infoWindow.getMap()) {
+      infoWindow.close()
+    } else {
+      infoWindow.open(map.value, marker)
+    }
+  })
+
+  infoWindow.open(map.value, marker)
 })
 
 const getObjectAsync = (fn: () => any) => {
@@ -55,3 +81,21 @@ const getObjectAsync = (fn: () => any) => {
   })
 }
 </script>
+
+<style lang="scss">
+.maps-wrap {
+  .iw_inner {
+    padding: 10px;
+    text-align: left;
+
+    h3 {
+      font-weight: 600;
+      margin: 40px 0 18px 0;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+}
+</style>

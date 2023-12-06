@@ -17,7 +17,7 @@
         </VCol>
       </VRow>
     </VCol>
-    <VCol cols="9">
+    <VCol :cols="slideCols">
       <!-- swiper ... -->
       <Swiper class="swiper-container" :slides-per-view="'auto'" :space-between="10" @swiper="onSwiper" @activeIndexChange="onActiveIndexChange">
         <SwiperSlide v-for="(item, idx) in resources" :key="idx">
@@ -40,6 +40,11 @@
 <script lang="ts" setup>
 import { Swiper } from 'swiper/vue'
 // import { Pagination, FreeMode } from 'swiper/modules'
+import { useDisplay } from 'vuetify'
+
+const display = useDisplay()
+
+const slideCols = computed(() => (display.xs.value || display.sm.value ? 12 : display.md.value ? 11 : 9))
 
 const swiper = ref()
 
@@ -133,7 +138,14 @@ function onActiveIndexChange(obj: any) {
     .swiper-container {
       width: 100%;
       .swiper-slide {
-        width: 340px;
+        max-width: 340px;
+        min-width: 228px;
+        width: 100%;
+        // height: auto;
+
+        img {
+          max-width: 100%;
+        }
       }
 
       .v-divider {
