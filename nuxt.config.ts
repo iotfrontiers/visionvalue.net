@@ -1,4 +1,5 @@
 import compression from 'vite-plugin-compression2'
+import { $fetch } from 'ofetch'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -59,6 +60,16 @@ export default defineNuxtConfig({
           pdsPage.children.splice(0, 1)
         }
       }
+
+      const corpPage = pages.find(p => p.name === 'corp')
+      if (corpPage) {
+        const portfolioPage = corpPage.children.find(p => p.name === 'corp-portfolio')
+        if (portfolioPage && portfolioPage.children.length === 1) {
+          portfolioPage.children[0].path = 'portfolio/:id()'
+          corpPage.children.push(portfolioPage.children[0])
+          portfolioPage.children.splice(0, 1)
+        }
+      }
     },
     'vite:extendConfig'(config) {
       config.plugins.push(
@@ -67,6 +78,14 @@ export default defineNuxtConfig({
           threshold: 1400,
         }),
       )
+    },
+    listen() {
+      if (!process.dev) {
+        $fetch('http://frontier.ftl.kro.kr/api/portfolio-list', {
+          method: 'POST',
+          body: {},
+        })
+      }
     },
   },
   app: {

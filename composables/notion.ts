@@ -7,6 +7,7 @@ interface NotionNotice {
   date?: string
   content?: string
   imgUrl?: string
+  categories?: string[]
 }
 
 interface NotionListResponse<T> {
