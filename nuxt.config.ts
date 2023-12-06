@@ -79,19 +79,6 @@ export default defineNuxtConfig({
         }),
       )
     },
-    listen() {
-      if (!process.dev) {
-        setInterval(() => {
-          if (process.dev) {
-            return
-          }
-          $fetch('http://frontier.ftl.kro.kr/api/portfolio-list', {
-            method: 'POST',
-            body: {},
-          })
-        }, 1000 * 60 * 10)
-      }
-    },
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
