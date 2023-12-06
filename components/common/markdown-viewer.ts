@@ -104,6 +104,7 @@ export default defineNuxtComponent({
       }
 
       root.value.innerHTML = markdownContent
+      root.value.style.margin = '10px'
       afterContentUpdated()
     }
 

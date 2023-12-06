@@ -159,7 +159,7 @@ export const getImageUrlInPage = cachedFunction(
       if (blockResult.results) {
         for (const block of blockResult.results) {
           if (block['type'] === 'image' && block['image']) {
-            return block['image']?.file?.url
+            return block['image']?.external?.url || block['image']?.file?.url
           }
         }
       }
@@ -169,7 +169,7 @@ export const getImageUrlInPage = cachedFunction(
     }
   },
   {
-    maxAge: 30 * 60,
+    maxAge: 10 * 60,
     name: 'notion-page-image-url',
     getKey: pageId => pageId,
   },

@@ -5,7 +5,6 @@ import { NotionNotice } from '~/composables/notion'
  */
 export default cachedEventHandler(
   async event => {
-    const { notion: notionConfig } = useRuntimeConfig()
     try {
       const query = getQuery(event)
       const id: string = query['id'] as string
