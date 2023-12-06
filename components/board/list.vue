@@ -31,7 +31,6 @@ const props = withDefaults(
   },
 )
 
-const route = useRoute()
 const currentPage = ref(1)
 const pageSize = ref(100)
 const noticeData = ref<NotionListResponse<NotionNotice>>()
