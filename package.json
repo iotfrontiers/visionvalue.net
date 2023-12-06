@@ -1,10 +1,12 @@
 {
     "name": "nuxt-app",
-    "version": "1.0.6",
+    "version": "1.0.11",
     "private": true,
     "type": "module",
     "scripts": {
+        "analyze": "nuxt analyze",
         "build": "auto-version --patch && nuxt build",
+        "cleanup": "nuxt cleanup",
         "dev": "nuxt dev",
         "preview": "cross-env PORT=12005 nuxt preview",
         "prepare": "nuxt prepare",

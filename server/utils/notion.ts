@@ -2,7 +2,6 @@ import { H3Event } from 'h3'
 import { Client } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
 import { NotionNotice, NotionListResponse, NotionPageRequest } from '~/composables/notion'
-import { existsSync, mkdirSync, readFileSync, writeFile } from 'node:fs'
 
 export const createNotionClient = () => {
   const { notion } = useRuntimeConfig()
@@ -12,12 +11,19 @@ export const createNotionClient = () => {
   })
 }
 
-export const getNotionMarkdownContent = async (id: string) => {
-  const notion = createNotionClient()
-  const n2m = new NotionToMarkdown({ notionClient: notion })
-  const blocks = await n2m.pageToMarkdown(id)
-  return n2m.toMarkdownString(blocks)?.parent || ''
-}
+export const getNotionMarkdownContent = cachedFunction(
+  async (id: string) => {
+    const notion = createNotionClient()
+    const n2m = new NotionToMarkdown({ notionClient: notion })
+    const blocks = await n2m.pageToMarkdown(id)
+    return n2m.toMarkdownString(blocks)?.parent || ''
+  },
+  {
+    maxAge: 30 * 60,
+    name: 'notion-markdown-content',
+    getKey: pageId => pageId,
+  },
+)
 
 export const createBoardListApi = async (event: any, databaseId: string) => {
   try {
@@ -141,3 +147,30 @@ export const createBoardDetailApi = async (event: H3Event) => {
     return null
   }
 }
+
+export const getImageUrlInPage = cachedFunction(
+  async (pageId: string) => {
+    try {
+      const notion = createNotionClient()
+      const blockResult = await notion.blocks.children.list({
+        block_id: pageId,
+      })
+
+      if (blockResult.results) {
+        for (const block of blockResult.results) {
+          if (block['type'] === 'image' && block['image']) {
+            return block['image']?.external?.url || block['image']?.file?.url
+          }
+        }
+      }
+    } catch (e) {
+      console.error(e)
+      return null
+    }
+  },
+  {
+    maxAge: 10 * 60,
+    name: 'notion-page-image-url',
+    getKey: pageId => pageId,
+  },
+)
