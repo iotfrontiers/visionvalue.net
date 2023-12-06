@@ -4,7 +4,7 @@
 export default cachedEventHandler(
   async event => {
     const { notion: notionConfig } = useRuntimeConfig()
-    return createBoardDetailApi(event, notionConfig.newsCacheDir as string)
+    return createBoardDetailApi(event)
   },
   {
     maxAge: 600,

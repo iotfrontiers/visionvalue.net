@@ -23,6 +23,7 @@ export default defineNuxtConfig({
       pdsDatabaseId: process.env.NOTION_PDS_DATABASE_ID,
       pdsCacheDir: process.env.NOTION_PDS_CACHE_DIR,
       askDatabaseId: process.env.NOTION_ASK_DATABASE_ID,
+      portFolioDatabaseId: process.env.NOTION_PORTFOLIO_DATABASE_ID,
     },
     email: {
       googleSmtpUser: process.env.GOOGLE_SMTP_USER,

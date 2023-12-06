@@ -59,6 +59,10 @@ const menuTabClicked = (menu: Tab) => {
     margin: 0 auto;
     padding: 0 10px;
 
+    .sub-title {
+      font-size: min(3rem, 10vw) !important;
+    }
+
     img {
       max-width: 100%;
     }

@@ -1,3 +1,4 @@
+import { H3Event } from 'h3'
 import { Client } from '@notionhq/client'
 import { NotionToMarkdown } from 'notion-to-md'
 import { NotionNotice, NotionListResponse, NotionPageRequest } from '~/composables/notion'
@@ -67,7 +68,7 @@ export const createBoardListApi = async (event: any, databaseId: string) => {
   }
 }
 
-export const createBoardDetailApi = async (event: any, cacheDir: string) => {
+export const createBoardDetailApi = async (event: H3Event) => {
   try {
     const query = getQuery(event)
     const id: string = query['id'] as string
@@ -101,18 +102,18 @@ export const createBoardDetailApi = async (event: any, cacheDir: string) => {
       throw new Error('Not Found Page')
     }
 
-    if (!existsSync(cacheDir)) {
-      mkdirSync(cacheDir, { recursive: true })
-    }
+    // if (!existsSync(cacheDir)) {
+    //   mkdirSync(cacheDir, { recursive: true })
+    // }
 
     // @ts-ignore
-    const fileName = id + pageInfo['last_edited_time'].replace(/:/gi, '')
-    const cacheFilePath = `${cacheDir}/${fileName}`
+    // const fileName = id + pageInfo['last_edited_time'].replace(/:/gi, '')
+    // const cacheFilePath = `${cacheDir}/${fileName}`
 
-    if (existsSync(cacheFilePath)) {
-      console.info('return cached result', cacheFilePath)
-      return JSON.parse(readFileSync(cacheFilePath, { encoding: 'utf-8' })) as NotionNotice
-    }
+    // if (existsSync(cacheFilePath)) {
+    //   console.info('return cached result', cacheFilePath)
+    //   return JSON.parse(readFileSync(cacheFilePath, { encoding: 'utf-8' })) as NotionNotice
+    // }
 
     const data: NotionNotice = {
       id: pageInfo.id as string,
@@ -130,9 +131,9 @@ export const createBoardDetailApi = async (event: any, cacheDir: string) => {
       imgUrl: '',
     }
 
-    if (!existsSync(cacheFilePath)) {
-      writeFile(cacheFilePath, JSON.stringify(data), { encoding: 'utf-8' }, () => {})
-    }
+    // if (!existsSync(cacheFilePath)) {
+    //   writeFile(cacheFilePath, JSON.stringify(data), { encoding: 'utf-8' }, () => {})
+    // }
 
     return data
   } catch (e) {
