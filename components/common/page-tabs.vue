@@ -6,7 +6,7 @@
       :class="{
         active: selectedIndex === idx,
       }"
-      class="flex-grow-1 tab d-flex align-center justify-center"
+      class="flex-1-1-100 tab d-flex align-center justify-center"
       @click="itemClicked(item)"
     >
       <span>{{ item.title }}</span>
@@ -75,6 +75,11 @@ watch(
   cursor: pointer;
   font-size: min(1.2rem, max(4vw, 10px));
   font-weight: 500;
+  // white-space: nowrap;
+  text-transform: none;
+  text-overflow: ellipsis;
+  line-height: calc(min(1.2rem, max(3.5vw, 8px)) + 2px);
+  padding: 0 4px;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);

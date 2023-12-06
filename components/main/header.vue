@@ -62,7 +62,7 @@ function logoClick() {
 <style lang="scss">
 .top-menu {
   // margin: 54px 0 0 95px;
-  margin: min(4vh, 54px) 0 0 min(5vw, 95px);
+  margin: min(4vw, 54px) 0 0 min(5vw, 95px);
   max-height: 50px;
   min-height: 50px;
   font-weight: 600;
@@ -79,6 +79,7 @@ function logoClick() {
     background-image: url('/logo/logo-white.png');
     background-repeat: no-repeat;
     background-size: 7rem;
+    background-position-y: center;
     cursor: pointer;
   }
 

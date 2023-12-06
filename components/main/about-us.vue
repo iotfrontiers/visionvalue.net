@@ -30,6 +30,11 @@
 
     padding-left: min(95px, 5vw);
     padding-top: min(40px, 3vw);
+    color: #fff;
+
+    .desc {
+      color: #fff;
+    }
 
     .section-title {
       // font-size: 32px;
@@ -38,12 +43,14 @@
       padding-bottom: 10px;
       border-bottom: 1px solid #fff;
       text-shadow: 2px 2px 4px gray;
+      color: #fff;
     }
 
     .sub-title {
       font-size: 22px;
       font-weight: 500;
       margin: 0;
+      color: #fff;
     }
   }
 }

@@ -35,11 +35,9 @@ const menuTabClicked = (menu: Tab) => {
 <style lang="scss">
 .sub-page-container {
   padding-bottom: 0;
-  .sub-title {
-  }
 
   .v-row.page-header-row {
-    min-height: 506px;
+    min-height: min(506px, 80vw);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
