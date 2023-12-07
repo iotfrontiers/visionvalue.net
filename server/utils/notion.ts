@@ -19,7 +19,7 @@ export const getNotionMarkdownContent = cachedFunction(
     return n2m.toMarkdownString(blocks)?.parent || ''
   },
   {
-    maxAge: 30 * 60,
+    maxAge: 10 * 60,
     name: 'notion-markdown-content',
     getKey: pageId => pageId,
   },

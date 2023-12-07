@@ -44,7 +44,7 @@ load()
 </script>
 <style lang="scss">
 .portfolio-row {
-  .v-card: {
+  .v-card {
     cursor: pointer;
   }
   .v-card:hover {

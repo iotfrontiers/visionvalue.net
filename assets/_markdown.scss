@@ -1,3 +1,5 @@
+@use 'github-markdown-css/github-markdown.css';
+
 .markdown-body {
   font-family: revert;
 
@@ -20,8 +22,6 @@
     margin-top: 20px;
   }
 }
-
-@import 'github-markdown-css/github-markdown.css';
 
 @media (prefers-color-scheme: dark) {
   .markdown-body {

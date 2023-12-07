@@ -74,7 +74,7 @@ export default defineNuxtConfig({
     'vite:extendConfig'(config) {
       config.plugins.push(
         compression({
-          include: [/\.(js)$/, /\.(css)$/],
+          include: [/\.(js)$/, /\.(css)$/, /\.(png)$/, /\.(woff)$/, /\.(woff2)$/],
           threshold: 1400,
         }),
       )
