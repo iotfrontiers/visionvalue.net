@@ -50,6 +50,7 @@ export default cachedEventHandler(
     }
   },
   {
-    maxAge: 10 * 60,
+    // maxAge: 10 * 60,
+    maxAge: -1,
   },
 )

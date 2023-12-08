@@ -1,6 +1,6 @@
 {
     "name": "nuxt-app",
-    "version": "1.0.22",
+    "version": "1.0.30",
     "private": true,
     "type": "module",
     "scripts": {
@@ -11,7 +11,7 @@
         "preview": "cross-env PORT=12005 nuxt preview",
         "prepare": "nuxt prepare",
         "postinstall": "nuxt prepare",
-        "start": "cross-env PORT=12005 node ./.output/server/index.mjs"
+        "start": "cross-env PORT=12005 NOTION_RESOURCE_PATH=/app/frontier/notion-resources node ./.output/server/index.mjs"
     },
     "devDependencies": {
         "@invictus.codes/nuxt-vuetify": "^0.3.0",

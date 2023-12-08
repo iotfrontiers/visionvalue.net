@@ -1,7 +1,12 @@
 import { H3Event } from 'h3'
 import { Client } from '@notionhq/client'
+import { fileURLToPath } from 'node:url'
+import { createHash } from 'node:crypto'
+import { dirname, resolve, extname, join } from 'pathe'
+import { existsSync, mkdirSync, createWriteStream } from 'node:fs'
 import { NotionToMarkdown } from 'notion-to-md'
 import { NotionNotice, NotionListResponse, NotionPageRequest } from '~/composables/notion'
+import https from 'https'
 
 export const createNotionClient = () => {
   const { notion } = useRuntimeConfig()
@@ -12,14 +17,46 @@ export const createNotionClient = () => {
 }
 
 export const getNotionMarkdownContent = cachedFunction(
-  async (id: string) => {
+  async (id: string, downloadResource: boolean = true) => {
     const notion = createNotionClient()
     const n2m = new NotionToMarkdown({ notionClient: notion })
     const blocks = await n2m.pageToMarkdown(id)
+
+    if (downloadResource) {
+      for (const block of blocks) {
+        if (block.type === 'image') {
+          if (block.parent) {
+            const dataArr = block.parent.split('(')
+
+            if (dataArr[1].includes('amazonaws.com')) {
+              const imgPath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+              if (imgPath) {
+                block.parent = dataArr[0] + `(${imgPath})`
+              }
+            }
+          }
+        }
+
+        if (block.type === 'file') {
+          if (block.parent) {
+            const dataArr = block.parent.split('(')
+
+            if (dataArr[1].includes('amazonaws.com')) {
+              const filePath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+
+              if (filePath) {
+                block.parent = dataArr[0] + `(${filePath})`
+              }
+            }
+          }
+        }
+      }
+    }
+
     return n2m.toMarkdownString(blocks)?.parent || ''
   },
   {
-    maxAge: 10 * 60,
+    maxAge: 3600,
     name: 'notion-markdown-content',
     getKey: pageId => pageId,
   },
@@ -148,8 +185,11 @@ export const createBoardDetailApi = async (event: H3Event) => {
   }
 }
 
+/**
+ * 이미지 URL을 조회한다.
+ */
 export const getImageUrlInPage = cachedFunction(
-  async (pageId: string) => {
+  async (pageId: string, saveAsLocal: boolean = true) => {
     try {
       const notion = createNotionClient()
       const blockResult = await notion.blocks.children.list({
@@ -159,7 +199,17 @@ export const getImageUrlInPage = cachedFunction(
       if (blockResult.results) {
         for (const block of blockResult.results) {
           if (block['type'] === 'image' && block['image']) {
-            return block['image']?.external?.url || block['image']?.file?.url
+            let fileUrl = null
+            if (saveAsLocal && block['image']?.file?.url) {
+              fileUrl = block['image']?.file?.url
+              const localFileUrl = await saveFileFromImageUrl('portfolio', fileUrl)
+
+              if (localFileUrl) {
+                fileUrl = localFileUrl
+              }
+            }
+
+            return fileUrl ? fileUrl : block['image']?.external?.url
           }
         }
       }
@@ -169,8 +219,60 @@ export const getImageUrlInPage = cachedFunction(
     }
   },
   {
-    maxAge: 10 * 60,
+    maxAge: 600,
     name: 'notion-page-image-url',
     getKey: pageId => pageId,
   },
 )
+
+export const saveFileFromImageUrl = async (id: string, url: string) => {
+  try {
+    if (!url.includes('amazonaws.com')) {
+      return null
+    }
+
+    const targetDir = resolve(getNotionResourcePath(), `./${id}`)
+    if (!existsSync(targetDir)) {
+      mkdirSync(targetDir, { recursive: true })
+    }
+
+    const resourceUrl = new URL(url)
+    const fileName =
+      createHash('md5')
+        .update(id + resourceUrl.origin + resourceUrl.pathname)
+        .digest('hex') + extname(resourceUrl.pathname)
+    const filePath = join(targetDir, fileName)
+
+    if (!existsSync(filePath)) {
+      await downloadToFile(filePath, url)
+    }
+
+    return `/notion-resources/${id}/${fileName}`
+  } catch (e) {
+    console.error(e)
+  }
+
+  return null
+}
+
+export const downloadToFile = (filePath: string, url: string) => {
+  return new Promise<void>((resolve, reject) => {
+    https.get(url, res => {
+      const fs = createWriteStream(filePath)
+      res.pipe(fs)
+      fs.on('finish', () => {
+        fs.close()
+        resolve()
+      })
+      fs.on('error', err => reject(err))
+    })
+  })
+}
+
+export const getNotionResourcePath = () => {
+  if (process.dev) {
+    return resolve(dirname(fileURLToPath(import.meta.url)), '../notion-resources')
+  } else {
+    return process.env.NOTION_RESOURCE_PATH
+  }
+}
