@@ -99,7 +99,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  experimental: {
-    noVueServer: true,
-  },
+  // experimental: {
+  //   noVueServer: true,
+  // },
 })
