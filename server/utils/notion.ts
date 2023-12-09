@@ -273,6 +273,10 @@ export const getNotionResourcePath = () => {
   if (process.dev) {
     return resolve(dirname(fileURLToPath(import.meta.url)), '../notion-resources')
   } else {
-    return process.env.NOTION_RESOURCE_PATH
+    try {
+      return process.cwd()
+    } catch (e) {
+      return process.env.NOTION_RESOURCE_PATH
+    }
   }
 }
