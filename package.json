@@ -6,7 +6,7 @@
   "scripts": {
     "analyze": "cross-env NITRO_PRESET=vercel_edge nuxt analyze",
     "build": "auto-version --patch && nuxt build",
-    "build:vercel": "cross-env NITRO_PRESET=vercel_edge nuxt build",
+    "build:vercel": "nuxt build --preset vercel_edge",
     "build:netlify": "nuxt build --preset=netlify_edge",
     "cleanup": "nuxt cleanup",
     "dev": "nuxt dev",
