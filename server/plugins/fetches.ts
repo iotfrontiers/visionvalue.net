@@ -2,10 +2,10 @@ import axios from 'axios'
 
 export default defineNitroPlugin(async () => {
   function callApi() {
-    console.info('fetch portfolio started....')
-    axios.post('http://localhost:12005/api/portfolio-list', {}).then(() => {
-      console.info('fetch portfolio finished....')
-    })
+    // console.info('fetch portfolio started....')
+    // axios.post('http://localhost:12005/api/portfolio-list', {}).then(() => {
+    //   console.info('fetch portfolio finished....')
+    // })
   }
 
   setInterval(() => {

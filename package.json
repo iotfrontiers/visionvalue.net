@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "build:version": "auto-version --patch && nuxt build",
     "build:vercel": "nuxt build --preset vercel_edge",
-    "build:netlify": "nuxt build --preset=netlify_edge",
+    "build:netlify": "nuxt build --preset=netlify",
     "cleanup": "nuxt cleanup",
     "dev": "nuxt dev",
     "preview": "cross-env PORT=12005 nuxt preview",
