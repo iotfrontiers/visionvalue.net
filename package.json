@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "analyze": "nuxt analyze",
-    "build": "auto-version --patch && nuxt build",
+    "build": "nuxt build",
+    "build:version": "auto-version --patch && nuxt build",
     "build:vercel": "nuxt build --preset vercel_edge",
     "build:netlify": "nuxt build --preset=netlify_edge",
     "cleanup": "nuxt cleanup",

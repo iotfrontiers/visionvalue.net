@@ -132,4 +132,5 @@ dist
 
 .output
 .vercel
+.netlify
 server/api/crypto.get.ts
