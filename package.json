@@ -1,12 +1,12 @@
 {
     "name": "nuxt-app",
-    "version": "1.0.44",
+    "version": "1.0.45",
     "private": true,
     "type": "module",
     "scripts": {
         "analyze": "cross-env NITRO_PRESET=vercel_edge nuxt analyze",
         "build": "auto-version --patch && nuxt build",
-        "build:vercel": "auto-version --patch && cross-env NITRO_PRESET=vercel_edge nuxt build",
+        "build:vercel": "auto-version --patch && cross-env NITRO_PRESET=vercel nuxt build",
         "cleanup": "nuxt cleanup",
         "dev": "nuxt dev",
         "preview": "cross-env PORT=12005 nuxt preview",
