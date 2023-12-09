@@ -1,11 +1,18 @@
 import axios from 'axios'
+import https from 'https'
 
 export default defineNitroPlugin(async () => {
   function callApi() {
     console.info('fetch portfolio started....', process.cwd())
-    axios.post(`${process.env.SITE_URL || 'http://localhost:12005'}/api/portfolio-list`, {}).then(() => {
-      console.info('fetch portfolio finished....')
-    })
+    axios
+      .post(`${process.env.SITE_URL || 'http://localhost:12005'}/api/portfolio-list`, {
+        httpsAgent: new https.Agent({
+          rejectUnauthorized: false,
+        }),
+      })
+      .then(() => {
+        console.info('fetch portfolio finished....')
+      })
   }
 
   setInterval(() => {
