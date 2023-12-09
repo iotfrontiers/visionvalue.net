@@ -1,5 +1,4 @@
 import compression from 'vite-plugin-compression2'
-import { $fetch } from 'ofetch'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -99,5 +98,8 @@ export default defineNuxtConfig({
         defaultTheme: 'dark',
       },
     },
+  },
+  experimental: {
+    noVueServer: true,
   },
 })
