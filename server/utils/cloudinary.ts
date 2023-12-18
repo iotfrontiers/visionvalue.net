@@ -56,7 +56,11 @@ export const uploadCloudinaryImage = (imageUrl: string) => {
         overwrite: false,
       })
       .then(res => resolve(res.url))
-      .catch(err => reject(err))
+      .catch(err => {
+        console.error(err)
+        //reject(err)
+        resolve(imageUrl)
+      })
   })
 }
 
