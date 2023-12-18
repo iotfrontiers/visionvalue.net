@@ -1,0 +1,13 @@
+{
+  "id": "fa6feafc-02e3-48b5-ae98-62b15679a41c",
+  "title": "IoT 기능을 이용한 그늘막 개발",
+  "categories": [
+    "Android",
+    "Mqtt",
+    "Ble",
+    "Node.Js",
+    "MySql"
+  ],
+  "content": "\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/1341c09baffe30564b888980b49fcf69.png)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/401211b1566ee8646fe11b79670ba50e.png)\n\n\n## **프로젝트 내용** \n\n- 전국에 설치되어 있는 수동 그늘막을 대체하기 위하여 만든 제품\n- LTE 모듈을 사용하여 서버로부터 대기환경 지수, 시간 및 날씨정보를 획득하여 LED dot display에 표시함\n- 그늘막 상태정보를 서버로 전달하고 GPS와 맵을 연동하여 고장 위치를 전송하고 원격으로 제어할 수 있는 기능을 제공\n\n## **기술 스택**\n\n- Android Stuido SDK (Java)\n- Ble 4.0 및 Mqtt 통신\n- Node.js\n- MySQL DB\n\n## 개발 내용\n\n- 모바일 폰을 통한 디바이스 원격 제어 (데이터 수신, 그늘막 제어)\n- 각 디바이스 위치에 모바일 앱 GPS 표시\n- OTA 업데이트\n- Server 구축 및 Cafe24 가상 서버 호스팅\n- 회원 및 장비 정보, 수집 데이터 DB 관리\n- YModem 프로토콜 MQTT 통신\n- Flavor를 통한 다수 앱 구글 스토어 배포 및 버전 관리\n\n## Mobile App\n\n\n구글 스토어 링크 \n\n\n1.[https://play.google.com/store/apps/details?id=com.youfuni.shade_platform](https://play.google.com/store/apps/details?id=com.youfuni.shade_platform)\n\n\n2.[https://play.google.com/store/apps/details?id=com.jisung.shade_platform](https://play.google.com/store/apps/details?id=com.jisung.shade_platform)\n\n\n3[https://play.google.com/store/apps/details?id=com.housing.shade_platform](https://play.google.com/store/apps/details?id=com.housing.shade_platform)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/708dcd010fa2c0317a6ded5b47d530c9.png)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/2323d8b0182d8262e6284992be064afe.png)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/a96e2a74ad92ae1f7c826db05b37404a.png)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/6c682b0946ef22c0dc2451acc310f118.png)\n\n",
+  "imgUrl": ""
+}

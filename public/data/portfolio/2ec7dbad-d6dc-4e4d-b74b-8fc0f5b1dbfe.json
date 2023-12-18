@@ -1,0 +1,11 @@
+{
+  "id": "2ec7dbad-d6dc-4e4d-b74b-8fc0f5b1dbfe",
+  "title": "누에 사육 및 관리 프로젝트",
+  "categories": [
+    "C#",
+    "Arudino",
+    "C/C++"
+  ],
+  "content": "\n### 누에 사육 및 관리 Window App 및 Esp32 제어 보드 개발\n\n\n![Untitled.jpeg](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/5303ae459b9fda88be1af58f3dc2a9f7.jpg)\n\n\n### 프로젝트 내용\n\n\n사육장에 설치된 센서에 대한 정보를 수집하고 이 정보를 바탕으로 사육실의 환경을 조정한다.\n\n\n### 개발 언어 \n\n\nWindow App - c#, 펌웨어 - C/C++\n\n\n### 기술 스택\n\n- WinForm (c#)\n- Aurdino - ESP32 (C/C++)\n- RS232 통신\n- Afroge.NET\n\n### 주요 기능\n\n- 공기질 센서 데이터 수집 및 저장\n- 실시간 데이터에 따른 살균 LED 밝기 및 사육장 환경 조절\n- 카메라 실시간 녹화\n- Wifi Socket 통신을 통한 메인 보드 원격 제어\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/27de37a62920bb92a3ba0850ed8f31e8.png)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/61fc13516e1e28df5479fe2844a4eae2.png)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/99c51d7c986c0b19da2acb3b1676043c.png)\n\n",
+  "imgUrl": ""
+}

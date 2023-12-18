@@ -22,13 +22,14 @@ const router = useRouter()
 const noticeInfo = ref<NotionNotice>(null)
 async function loadDetail() {
   await useLoadingTask(async () => {
-    noticeInfo.value = await $fetch('/api/portfolio', {
-      params: {
-        id: route.params.id,
-        update: 'true',
-      },
-    })
+    // noticeInfo.value = await $fetch('/api/portfolio', {
+    //   params: {
+    //     id: route.params.id,
+    //     update: 'true',
+    //   },
+    // })
 
+    noticeInfo.value = await $fetch(`/data/portfolio/${route.params.id}.json`)
     if (!noticeInfo.value) {
       alert(COMMON_MESSAGES.DATA_NOT_FOUND_ERROR)
       router.back()

@@ -1,5 +1,6 @@
 import { type NotionPageRequest, type NotionNotice, type NotionListResponse } from '~/composables/notion'
 import { Client } from '@notionhq/client'
+import { NotionToMarkdown } from 'notion-to-md'
 import { decryptString } from '../server/utils/crypt'
 import dotenv from 'dotenv'
 import { v2 as cloudinary } from 'cloudinary'
@@ -54,6 +55,11 @@ const makePortfolioDataFile = async () => {
 
     console.log('result', r)
     writeFileSync(TARGET_FILE_PATH, JSON.stringify(r, null, 2))
+
+    for (const item of list) {
+      await makeDetailFile(item.id)
+      console.info('portfolio detail : ' + item.id)
+    }
   } catch (e) {
     console.error(e)
     return {
@@ -152,6 +158,73 @@ const getFileExt = (url: string) => {
   }
 
   return ext.substring(1)
+}
+
+const makeDetailFile = async (id: string) => {
+  if (!id) {
+    throw new Error('id is empty')
+  }
+
+  const notion = createNotionClient()
+  const pageInfo = await notion.pages.retrieve({
+    page_id: id as string,
+  })
+
+  const data: NotionNotice = {
+    id: pageInfo.id as string,
+    // @ts-ignore
+    title: pageInfo.properties['Name']?.title?.map(t => t.plain_text).join(''),
+    // @ts-ignore
+    categories: pageInfo.properties['카테고리']?.multi_select?.map(t => t.name),
+
+    content: await getNotionMarkdownContent(id),
+
+    imgUrl: '',
+  }
+
+  const filePath = resolve(__dirname, `../public/data/portfolio/${id}.json`)
+  writeFileSync(filePath, JSON.stringify(data, null, 2))
+}
+
+export const getNotionMarkdownContent = async (id: string, downloadResource: boolean = true) => {
+  const notion = createNotionClient()
+  const n2m = new NotionToMarkdown({ notionClient: notion })
+  const blocks = await n2m.pageToMarkdown(id)
+
+  if (downloadResource) {
+    for (const block of blocks) {
+      if (block.type === 'image') {
+        if (block.parent) {
+          const dataArr = block.parent.split('(')
+
+          if (dataArr[1].includes('amazonaws.com')) {
+            // const imgPath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+            const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
+            if (cloudinaryFileUrl) {
+              block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+            }
+          }
+        }
+      }
+
+      if (block.type === 'file') {
+        if (block.parent) {
+          const dataArr = block.parent.split('(')
+
+          if (dataArr[1].includes('amazonaws.com')) {
+            // const filePath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+            const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
+
+            if (cloudinaryFileUrl) {
+              block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return n2m.toMarkdownString(blocks)?.parent || ''
 }
 
 dotenv.config()

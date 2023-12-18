@@ -1,4 +1,6 @@
 import compression from 'vite-plugin-compression2'
+import { resolve } from 'pathe'
+// import { copySync } from 'fs-extra'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -84,6 +86,14 @@ export default defineNuxtConfig({
         }),
       )
     },
+    // close(nuxt) {
+    //   const outputPublicDir = resolve(__dirname, './.output/public/data')
+    //   const dataDir = resolve(__dirname, './data')
+
+    //   copySync(dataDir, outputPublicDir, {
+    //     overwrite: true,
+    //   })
+    // },
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },

@@ -1,0 +1,12 @@
+{
+  "id": "c19c21dd-13d7-4175-84ef-667a95b27cda",
+  "title": "스마트 디스플레이 광고판 프로젝트",
+  "categories": [
+    "JAVA",
+    "Android",
+    "Bluetooth",
+    "WifiDirect"
+  ],
+  "content": "\n[스마트 디스플레이 스틱 PC 및 제어 모바일 앱 개발]\n\n\n![Untitled.jpeg](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/ea68ce53288a8829dc7c769f9f60f86c.jpg)\n\n\n## 프로젝트 내용\n\n\n일반 모니터에 스틱 PC를 연결 후 내장 되어있는 OS에 해당 어플리케이션을 설치하여 광고 메뉴판 및 컨텐츠를 광고 한다\n\n\n## 개발 언어\n\n\nJava \n\n\n## 기술 스택\n\n- Android Stuido SDK (Java)\n- Bluetooth Classic 및 Wifi Socket\n\n## 주요 기능\n\n- 모니터 컨텐츠 표시 (메뉴판, 사진 및 동영상 수정  )\n- 블루투스 및 Socket 통신을 통한 모니터 실시간 수정\n- 스틱 PC 안드로이드 포팅\n\n![Untitled.jpeg](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/8e2cdc1dec1cb3234b88bb293172d7db.jpg)\n\n\n## 모니터(스틱 PC)\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/3d7374fb028ebbfefa7d9dfcd47d0d1a.png)\n\n\n## 제어 모바일 앱\n\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/1129b10f5c0bbee53c651a08e0a28ee1.png)\n\n",
+  "imgUrl": ""
+}
