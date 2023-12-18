@@ -14,8 +14,8 @@ export default defineNitroPlugin(async () => {
         console.info('fetch portfolio finished....')
       })
   }
-  setInterval(() => {
-    callApi()
-  }, 1000 * 60 * 10)
-  setTimeout(() => callApi(), 10000)
+  // setInterval(() => {
+  //   callApi()
+  // }, 1000 * 60 * 10)
+  // setTimeout(() => callApi(), 10000)
 })
