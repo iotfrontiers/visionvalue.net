@@ -29,9 +29,10 @@ export const getNotionMarkdownContent = cachedFunction(
             const dataArr = block.parent.split('(')
 
             if (dataArr[1].includes('amazonaws.com')) {
-              const imgPath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
-              if (imgPath) {
-                block.parent = dataArr[0] + `(${imgPath})`
+              // const imgPath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+              const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
+              if (cloudinaryFileUrl) {
+                block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
               }
             }
           }
@@ -42,10 +43,11 @@ export const getNotionMarkdownContent = cachedFunction(
             const dataArr = block.parent.split('(')
 
             if (dataArr[1].includes('amazonaws.com')) {
-              const filePath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+              // const filePath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+              const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
 
-              if (filePath) {
-                block.parent = dataArr[0] + `(${filePath})`
+              if (cloudinaryFileUrl) {
+                block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
               }
             }
           }
@@ -202,10 +204,10 @@ export const getImageUrlInPage = cachedFunction(
             let fileUrl = null
             if (saveAsLocal && block['image']?.file?.url) {
               fileUrl = block['image']?.file?.url
-              const localFileUrl = await saveFileFromImageUrl('portfolio', fileUrl)
-
-              if (localFileUrl) {
-                fileUrl = localFileUrl
+              // const localFileUrl = await saveFileFromImageUrl('portfolio', fileUrl)
+              const cloudinaryFileUrl = await uploadCloudinaryImage(fileUrl)
+              if (cloudinaryFileUrl) {
+                fileUrl = cloudinaryFileUrl
               }
             }
 

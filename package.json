@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "auto-version-js": "^0.3.10",
-    "axios": "^1.6.2"
+    "axios": "^1.6.2",
+    "cloudinary": "^1.41.0"
   }
 }

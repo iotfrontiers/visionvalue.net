@@ -4,7 +4,7 @@ import compression from 'vite-plugin-compression2'
 export default defineNuxtConfig({
   ssr: true,
   // devtools: { enabled: true },
-  modules: ['@invictus.codes/nuxt-vuetify', 'nuxt-swiper'],
+  modules: ['@nuxt/devtools', '@invictus.codes/nuxt-vuetify', 'nuxt-swiper'],
   // spaLoadingTemplate: true,
   routeRules: {
     '/**': { ssr: false },
@@ -29,6 +29,12 @@ export default defineNuxtConfig({
       googleSmtpUser: process.env.GOOGLE_SMTP_USER,
       googleSmtpPassword: process.env.GOOGLE_SMTP_PASSWORD,
       emailReceivers: process.env.EMAIL_RECIEVERS,
+    },
+    cloudinary: {
+      cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+      apiKey: process.env.CLOUDINARY_API_KEY,
+      apiSecret: process.env.CLOUDINARY_API_SECRET,
+      uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET,
     },
   },
   hooks: {
