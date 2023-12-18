@@ -10,7 +10,6 @@ import https from 'https'
 
 export const createNotionClient = () => {
   const { notion } = useRuntimeConfig()
-
   return new Client({
     auth: decryptString(notion.apiSecret),
   })
@@ -227,58 +226,58 @@ export const getImageUrlInPage = cachedFunction(
   },
 )
 
-export const saveFileFromImageUrl = async (id: string, url: string) => {
-  try {
-    if (!url.includes('amazonaws.com')) {
-      return null
-    }
+// export const saveFileFromImageUrl = async (id: string, url: string) => {
+//   try {
+//     if (!url.includes('amazonaws.com')) {
+//       return null
+//     }
 
-    const targetDir = resolve(getNotionResourcePath(), `./${id}`)
-    if (!existsSync(targetDir)) {
-      mkdirSync(targetDir, { recursive: true })
-    }
+//     const targetDir = resolve(getNotionResourcePath(), `./${id}`)
+//     if (!existsSync(targetDir)) {
+//       mkdirSync(targetDir, { recursive: true })
+//     }
 
-    const resourceUrl = new URL(url)
-    const fileName =
-      createHash('md5')
-        .update(id + resourceUrl.origin + resourceUrl.pathname)
-        .digest('hex') + extname(resourceUrl.pathname)
-    const filePath = join(targetDir, fileName)
+//     const resourceUrl = new URL(url)
+//     const fileName =
+//       createHash('md5')
+//         .update(id + resourceUrl.origin + resourceUrl.pathname)
+//         .digest('hex') + extname(resourceUrl.pathname)
+//     const filePath = join(targetDir, fileName)
 
-    if (!existsSync(filePath)) {
-      await downloadToFile(filePath, url)
-    }
+//     if (!existsSync(filePath)) {
+//       await downloadToFile(filePath, url)
+//     }
 
-    return `/notion-resources/${id}/${fileName}`
-  } catch (e) {
-    console.error(e)
-  }
+//     return `/notion-resources/${id}/${fileName}`
+//   } catch (e) {
+//     console.error(e)
+//   }
 
-  return null
-}
+//   return null
+// }
 
-export const downloadToFile = (filePath: string, url: string) => {
-  return new Promise<void>((resolve, reject) => {
-    https.get(url, res => {
-      const fs = createWriteStream(filePath)
-      res.pipe(fs)
-      fs.on('finish', () => {
-        fs.close()
-        resolve()
-      })
-      fs.on('error', err => reject(err))
-    })
-  })
-}
+// export const downloadToFile = (filePath: string, url: string) => {
+//   return new Promise<void>((resolve, reject) => {
+//     https.get(url, res => {
+//       const fs = createWriteStream(filePath)
+//       res.pipe(fs)
+//       fs.on('finish', () => {
+//         fs.close()
+//         resolve()
+//       })
+//       fs.on('error', err => reject(err))
+//     })
+//   })
+//}
 
-export const getNotionResourcePath = () => {
-  if (process.dev) {
-    return resolve(dirname(fileURLToPath(import.meta.url)), '../notion-resources')
-  } else {
-    try {
-      return process.cwd()
-    } catch (e) {
-      return process.env.NOTION_RESOURCE_PATH
-    }
-  }
-}
+// export const getNotionResourcePath = () => {
+//   if (process.dev) {
+//     return resolve(dirname(fileURLToPath(import.meta.url)), '../notion-resources')
+//   } else {
+//     try {
+//       return process.cwd()
+//     } catch (e) {
+//       return process.env.NOTION_RESOURCE_PATH
+//     }
+//   }
+// }

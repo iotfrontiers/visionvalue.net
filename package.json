@@ -2,7 +2,6 @@
   "name": "nuxt-app",
   "version": "1.0.47",
   "private": true,
-  "type": "module",
   "scripts": {
     "analyze": "nuxt analyze",
     "build": "nuxt build",
@@ -14,7 +13,8 @@
     "preview": "cross-env PORT=12005 nuxt preview",
     "prepare": "nuxt prepare",
     "postinstall": "nuxt prepare",
-    "start": "cross-env PORT=12005 NOTION_RESOURCE_PATH=/app/frontier/notion-resources node ./.output/server/index.mjs"
+    "start": "cross-env PORT=12005 NOTION_RESOURCE_PATH=/app/frontier/notion-resources node ./.output/server/index.mjs",
+    "update:data": "ts-node ./scripts/portfolio-list"
   },
   "resolutions": {
     "globby": "13.2.2",
@@ -48,6 +48,7 @@
     "nuxt-swiper": "^1.2.2",
     "pretendard": "^1.3.9",
     "sass": "^1.69.5",
+    "typescript": "^5.3.3",
     "vite-plugin-compression2": "^0.11.0",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
@@ -56,6 +57,7 @@
     "@netlify/functions": "^2.4.1",
     "auto-version-js": "^0.3.10",
     "axios": "^1.6.2",
-    "cloudinary": "^1.41.0"
+    "cloudinary": "^1.41.0",
+    "ts-node": "^10.9.2"
   }
 }
