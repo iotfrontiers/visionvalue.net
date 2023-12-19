@@ -1,0 +1,39 @@
+name: Daily 데이터 생성
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install Yarn
+        run: npm install --global yarn
+
+      - name: Generate Data
+        run: yarn run update:data
+
+      - name: Push Data
+        run: |
+          CURRENT_DATE=$(date +%Y%m%d%H%m)
+
+          git add -A
+          git config --global user.email "keymasroy@gmail.com"
+          git config --global user.name "Roy Lee"
+          git commit -am "Update notion data : ${CURRENT_DATE}"
+          git push
