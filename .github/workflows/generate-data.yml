@@ -2,7 +2,7 @@ name: Daily 데이터 생성
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '20 * * * *'
 
 permissions:
   contents: write
