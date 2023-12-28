@@ -1,7 +1,8 @@
 {
-  "name": "nuxt-app",
+  "name": "frontiers-app",
   "version": "1.0.47",
   "private": true,
+  "type": "module",
   "scripts": {
     "analyze": "nuxt analyze",
     "build": "nuxt build",
@@ -14,7 +15,7 @@
     "prepare": "nuxt prepare",
     "postinstall": "nuxt prepare",
     "start": "cross-env PORT=12005 NOTION_RESOURCE_PATH=/app/frontier/notion-resources node ./.output/server/index.mjs",
-    "update:data": "ts-node ./scripts/portfolio-list"
+    "update:data": "node --loader ts-node/esm ./scripts/index.ts"
   },
   "resolutions": {
     "globby": "13.2.2",
@@ -58,6 +59,7 @@
     "auto-version-js": "^0.3.10",
     "axios": "^1.6.2",
     "cloudinary": "^1.41.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
   }
 }

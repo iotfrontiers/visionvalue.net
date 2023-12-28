@@ -8,6 +8,7 @@ interface NotionNotice {
   content?: string
   imgUrl?: string
   categories?: string[]
+  lastUpdateDate?: string
 }
 
 interface NotionListResponse<T> {

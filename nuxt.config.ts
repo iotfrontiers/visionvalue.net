@@ -13,6 +13,11 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: false,
+    tsConfig: {
+      compilerOptions: {
+        allowImportingTsExtensions: true,
+      },
+    },
   },
   runtimeConfig: {
     notion: {
