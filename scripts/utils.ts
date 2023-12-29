@@ -2,10 +2,12 @@ import { Client } from '@notionhq/client'
 import { v2 as cloudinary } from 'cloudinary'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
+import { existsSync, mkdirSync, createWriteStream } from 'node:fs'
 import { decryptString } from '../server/utils/crypt.ts'
-import { extname, resolve, dirname } from 'pathe'
+import { extname, resolve, dirname, join } from 'pathe'
 import { NotionToMarkdown } from 'notion-to-md'
 import axios from 'axios'
+import https from 'https'
 
 /**
  * notion client 객체 생성
@@ -23,7 +25,7 @@ export const createNotionClient = () => {
  * @param saveAsLocal
  * @returns
  */
-export const getImageUrlInPage = async (pageId: string, saveAsLocal: boolean = true) => {
+export const getImageUrlInPage = async (pageId: string, saveAsLocal: boolean = true, useCloudinary = false) => {
   try {
     const notion = createNotionClient()
     const blockResult = await notion.blocks.children.list({
@@ -37,9 +39,17 @@ export const getImageUrlInPage = async (pageId: string, saveAsLocal: boolean = t
           if (saveAsLocal && block['image']?.file?.url) {
             fileUrl = block['image']?.file?.url
             // const localFileUrl = await saveFileFromImageUrl('portfolio', fileUrl)
-            const cloudinaryFileUrl = await uploadCloudinaryImage(fileUrl)
-            if (cloudinaryFileUrl) {
-              fileUrl = cloudinaryFileUrl
+
+            if (useCloudinary) {
+              const cloudinaryFileUrl = await uploadCloudinaryImage(fileUrl)
+              if (cloudinaryFileUrl) {
+                fileUrl = cloudinaryFileUrl
+              }
+            } else {
+              const localFileUrl = await saveFileFromImageUrl(pageId, fileUrl)
+              if (localFileUrl) {
+                fileUrl = localFileUrl
+              }
             }
           }
 
@@ -118,7 +128,7 @@ const uploadCloudinaryImage = (imageUrl: string) => {
   })
 }
 
-export const getNotionMarkdownContent = async (id: string, downloadResource: boolean = true) => {
+export const getNotionMarkdownContent = async (id: string, downloadResource: boolean = true, useCloudinary = false) => {
   const notion = createNotionClient()
   const n2m = new NotionToMarkdown({ notionClient: notion })
   const blocks = await n2m.pageToMarkdown(id)
@@ -131,9 +141,17 @@ export const getNotionMarkdownContent = async (id: string, downloadResource: boo
 
           if (dataArr[1].includes('amazonaws.com')) {
             // const imgPath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
-            const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
-            if (cloudinaryFileUrl) {
-              block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+
+            if (useCloudinary) {
+              const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
+              if (cloudinaryFileUrl) {
+                block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+              }
+            } else {
+              const localFileUrl = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+              if (localFileUrl) {
+                block.parent = localFileUrl
+              }
             }
           }
         }
@@ -145,10 +163,18 @@ export const getNotionMarkdownContent = async (id: string, downloadResource: boo
 
           if (dataArr[1].includes('amazonaws.com')) {
             // const filePath = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
-            const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
 
-            if (cloudinaryFileUrl) {
-              block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+            if (useCloudinary) {
+              const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
+
+              if (cloudinaryFileUrl) {
+                block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+              }
+            } else {
+              const localFileUrl = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
+              if (localFileUrl) {
+                block.parent = localFileUrl
+              }
             }
           }
         }
@@ -176,4 +202,52 @@ export const getDataFilePath = (id: string) => {
  */
 export const getPageDataFilePath = (id: string, pageId: string) => {
   return resolve(fileURLToPath(dirname(import.meta.url)), `../public/data/${id}/${pageId}.json`)
+}
+
+export const saveFileFromImageUrl = async (pageId: string, url: string) => {
+  try {
+    if (!url.includes('amazonaws.com')) {
+      return null
+    }
+
+    const targetDir = resolve(getNotionResourcePath(), `./${pageId}`)
+    if (!existsSync(targetDir)) {
+      mkdirSync(targetDir, { recursive: true })
+    }
+
+    const resourceUrl = new URL(url)
+    const fileName =
+      createHash('md5')
+        .update(pageId + resourceUrl.origin + resourceUrl.pathname)
+        .digest('hex') + extname(resourceUrl.pathname)
+    const filePath = join(targetDir, fileName)
+
+    if (!existsSync(filePath)) {
+      await downloadToFile(filePath, url)
+    }
+
+    return `/notion-resources/${pageId}/${fileName}`
+  } catch (e) {
+    console.error(e)
+  }
+
+  return null
+}
+
+export const downloadToFile = (filePath: string, url: string) => {
+  return new Promise<void>((resolve, reject) => {
+    https.get(url, res => {
+      const fs = createWriteStream(filePath)
+      res.pipe(fs)
+      fs.on('finish', () => {
+        fs.close()
+        resolve()
+      })
+      fs.on('error', err => reject(err))
+    })
+  })
+}
+
+export const getNotionResourcePath = () => {
+  return resolve(dirname(fileURLToPath(import.meta.url)), '../public/notion-resources')
 }

@@ -1,5 +1,10 @@
 import dotenv from 'dotenv'
 import { makePortfolioDataFile } from './portfolio'
-
-dotenv.config()
-makePortfolioDataFile()
+import { makeNewsDataFile } from './news'
+import { makeNoticeDataFile } from './notice'
+;(async () => {
+  dotenv.config()
+  await makePortfolioDataFile()
+  await makeNewsDataFile()
+  await makeNoticeDataFile()
+})()

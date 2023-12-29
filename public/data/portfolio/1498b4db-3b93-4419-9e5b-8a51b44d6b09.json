@@ -1,5 +1,4 @@
 {
-  "id": "1498b4db-3b93-4419-9e5b-8a51b44d6b09",
   "title": "방광 헬스케어 펌웨어 개발",
   "categories": [
     "Linux",
@@ -7,6 +6,8 @@
     "Gyro",
     "초음파"
   ],
-  "content": "\n### 방광 헬스케어 데이터 수집을 위한 ESP32 펌웨어 개발\n\n\n![Untitled.jpeg](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/0bc48ba0db92c80ab010156d4d4b35b4.jpg)\n\n\n### 프로젝트 내용 \n\n\n프로브 초음파 센서와 각종 센서를 통한 방광 모니터링\n\n\n### 개발 언어 \n\n\nESP-IDF\n\n\n### 기술 스택\n\n- ESP-IDF (C/C++)\n\n### 주요 기능\n\n- 9축 모션 센서, Probe 초음파 데이터, 조도 데이터 수집\n- 수집 한 데이터 csv 형식 데이터 저장\n- MicroPhone 녹음 및 재생\n- Micro SdCard 데이터 저장\n\n![Untitled.png](https://res.cloudinary.com/keymasroy/image/upload/v1/frontier/db4c1e86c2ff238bbcddb7e5e4bff994.png)\n\n",
+  "id": "1498b4db-3b93-4419-9e5b-8a51b44d6b09",
+  "content": "\n### 방광 헬스케어 데이터 수집을 위한 ESP32 펌웨어 개발\n\n\n/notion-resources/1498b4db-3b93-4419-9e5b-8a51b44d6b09/7d74804a4a8aeaf604077e0d20fd384b.jpeg\n\n\n### 프로젝트 내용 \n\n\n프로브 초음파 센서와 각종 센서를 통한 방광 모니터링\n\n\n### 개발 언어 \n\n\nESP-IDF\n\n\n### 기술 스택\n\n- ESP-IDF (C/C++)\n\n### 주요 기능\n\n- 9축 모션 센서, Probe 초음파 데이터, 조도 데이터 수집\n- 수집 한 데이터 csv 형식 데이터 저장\n- MicroPhone 녹음 및 재생\n- Micro SdCard 데이터 저장\n\n/notion-resources/1498b4db-3b93-4419-9e5b-8a51b44d6b09/bf9e3ed97e577f346b60367704a8063f.png\n\n",
+  "lastUpdateDate": "2023-12-06T05:57:00.000Z",
   "imgUrl": ""
 }
