@@ -1,0 +1,19 @@
+{
+  "id": "41377260-560f-42e2-a6be-9aea73481f50",
+  "title": " 제품 소개",
+  "lastUpdateDate": "2023-12-28T11:28:00.000Z",
+  "children": [
+    {
+      "id": "1d42a09e-65b3-4609-93b2-315de5718a69",
+      "title": "라히트보드(소형)",
+      "lastUpdateDate": "2023-12-26T09:28:00.000Z",
+      "children": []
+    },
+    {
+      "id": "479ce8a4-f821-4c73-958a-d055337f4e06",
+      "title": "카달로그",
+      "lastUpdateDate": "2023-12-28T11:28:00.000Z",
+      "children": []
+    }
+  ]
+}

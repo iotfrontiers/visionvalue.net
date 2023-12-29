@@ -1,3 +1,3 @@
 <template>
-  <BoardDetail apiUrl="/api/pds" listPageUrl="/inquiry/pds" />
+  <BoardDetail apiUrl="/data/pds" listPageUrl="/inquiry/pds" />
 </template>

@@ -15,10 +15,42 @@ import {
 export type NotionPageOrDatabaseResponse = PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse
 
 export interface NotionDataLoaderOptions {
-  id: 'portfolio' | 'notice' | 'news' | 'pds'
-  hasImageInList: boolean
+  /**
+   * 로드 유형
+   */
+  id: 'portfolio' | 'notice' | 'news' | 'pds' | 'education' | 'product'
+
+  /**
+   * 목록에서 이미지 정보 포함 다운로드 여부
+   * @default false
+   */
+  hasImageInList?: boolean
+
+  /**
+   * 하위 페이지 정보 포함 여부
+   * @default false
+   */
+  appendChildPageInfo?: boolean
+
+  /**
+   * 데이터베이스 쿼리 커스토마이징 funciton
+   * @param req
+   * @returns
+   */
   customizeDatabaseQuery: (req: QueryDatabaseParameters) => Partial<QueryDatabaseParameters>
+
+  /**
+   * 데이터베이스 응답 값 커스토마이징 function
+   * @param res
+   * @returns
+   */
   customizeDatabaseResponse?: (res: DatabaseObjectResponse) => NotionNotice | Promise<NotionNotice>
+
+  /**
+   * 페이지 응답 값 커스토마이징 function
+   * @param res
+   * @returns
+   */
   customizePageResponse?: (res: PageObjectResponse) => NotionNotice | Promise<NotionNotice>
 }
 
@@ -26,7 +58,7 @@ export class NotionDataLoader {
   private options: Partial<NotionDataLoaderOptions>
 
   constructor(options: NotionDataLoaderOptions) {
-    this.options = useDeepMerge({ hasImageInList: false }, options)
+    this.options = useDeepMerge({ hasImageInList: false, appendChildPageInfo: false }, options)
   }
 
   private createDirectories(filePath: string) {
@@ -120,6 +152,10 @@ export class NotionDataLoader {
     }
   }
 
+  /**
+   * 페이지 정보 로드
+   * @param id 아이디
+   */
   async loadPage(id: string) {
     if (!id) {
       throw new Error('id is empty')
@@ -147,13 +183,57 @@ export class NotionDataLoader {
 
     data = useDeepMerge({}, data, {
       id: pageInfo.id as string,
+      title: pageInfo['properties']?.title?.title[0]?.text?.content,
       content: oldData && oldData.lastUpdateDate === pageInfo['last_edited_time'] ? oldData.content : await getNotionMarkdownContent(id),
       lastUpdateDate: pageInfo['last_edited_time'],
       imgUrl: '',
     })
 
     writeFileSync(dataFilePath, JSON.stringify(data, null, 2))
-
     consola.info(`finished ${this.options.id} page data : ` + id)
+  }
+
+  /**
+   * 페이지 계층 정보 로드
+   * @param id 아이디
+   */
+  async loadPageHierarchy(id: string, depth: number = 0) {
+    if (!id) {
+      throw new Error('id is empty')
+    }
+
+    consola.info(`load ${this.options.id} page hierarchy data : ` + id)
+
+    const notion = createNotionClient()
+    const pageInfo = await notion.pages.retrieve({
+      page_id: id as string,
+    })
+
+    const page: NotionNotice = {
+      id: pageInfo.id,
+      title: pageInfo['properties']?.title?.title[0]?.text?.content,
+      lastUpdateDate: pageInfo['last_edited_time'],
+      children: [],
+    }
+
+    const childrenBlock = await notion.blocks.children.list({
+      block_id: pageInfo.id,
+    })
+    const childPages = childrenBlock.results.filter(block => block['type'] === 'child_page')
+    for (const childPage of childPages) {
+      page.children.push(await this.loadPageHierarchy(childPage.id, depth + 1))
+    }
+
+    if (depth === 0) {
+      const dataFilePath = getDataFilePath(this.options.id)
+      this.createDirectories(dataFilePath)
+      writeFileSync(dataFilePath, JSON.stringify(page, null, 2))
+    }
+
+    if (!page.children || page.children.length < 1) {
+      await this.loadPage(page.id)
+    }
+
+    return page
   }
 }

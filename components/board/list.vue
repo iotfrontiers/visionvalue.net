@@ -22,11 +22,10 @@ import { useDisplay } from 'vuetify'
 
 const props = withDefaults(
   defineProps<{
-    apiUrl?: string
+    listData: any
     detailPageUrl?: string
   }>(),
   {
-    apiUrl: '/api/notice-list',
     detailPageUrl: '/community/notice/',
   },
 )
@@ -38,12 +37,14 @@ const noticeData = ref<NotionListResponse<NotionNotice>>()
 async function loadNotice() {
   await useLoadingTask(async () => {
     try {
-      noticeData.value = await $fetch(props.apiUrl, {
-        method: 'post',
-        body: {
-          pageSize: pageSize.value,
-        },
-      })
+      // noticeData.value = await $fetch(props.apiUrl, {
+      //   method: 'post',
+      //   body: {
+      //     pageSize: pageSize.value,
+      //   },
+      // })
+
+      noticeData.value = props.listData
 
       let startNo = pageSize.value * (currentPage.value - 1)
       noticeData.value?.list?.forEach(row => {

@@ -1,3 +1,3 @@
 <template>
-  <BoardDetail apiUrl="/api/news" listPageUrl="/community/news" />
+  <BoardDetail apiUrl="/data/news" listPageUrl="/community/news" />
 </template>

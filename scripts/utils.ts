@@ -131,7 +131,7 @@ const uploadCloudinaryImage = (imageUrl: string) => {
 export const getNotionMarkdownContent = async (id: string, downloadResource: boolean = true, useCloudinary = false) => {
   const notion = createNotionClient()
   const n2m = new NotionToMarkdown({ notionClient: notion })
-  const blocks = await n2m.pageToMarkdown(id)
+  const blocks = await n2m.pageToMarkdown(id, 1)
 
   if (downloadResource) {
     for (const block of blocks) {
@@ -150,7 +150,7 @@ export const getNotionMarkdownContent = async (id: string, downloadResource: boo
             } else {
               const localFileUrl = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
               if (localFileUrl) {
-                block.parent = localFileUrl
+                block.parent = dataArr[0] + `(${localFileUrl})`
               }
             }
           }
@@ -173,7 +173,7 @@ export const getNotionMarkdownContent = async (id: string, downloadResource: boo
             } else {
               const localFileUrl = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
               if (localFileUrl) {
-                block.parent = localFileUrl
+                block.parent = dataArr[0] + `(${localFileUrl})`
               }
             }
           }

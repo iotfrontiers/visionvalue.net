@@ -30,7 +30,7 @@ const props = withDefaults(
     listPageUrl?: string
   }>(),
   {
-    apiUrl: '/api/notice',
+    apiUrl: '/data/notice',
     listPageUrl: '/community/notice',
   },
 )
@@ -40,12 +40,13 @@ const router = useRouter()
 const noticeInfo = ref<NotionNotice>(null)
 async function loadDetail() {
   await useLoadingTask(async () => {
-    noticeInfo.value = await $fetch(props.apiUrl, {
-      params: {
-        id: route.params.id,
-        update: 'true',
-      },
-    })
+    noticeInfo.value = await $fetch(`${props.apiUrl}/${route.params.id}.json`)
+    // noticeInfo.value = await $fetch(props.apiUrl, {
+    //   params: {
+    //     id: route.params.id,
+    //     update: 'true',
+    //   },
+    // })
 
     if (!noticeInfo.value) {
       alert(COMMON_MESSAGES.DATA_NOT_FOUND_ERROR)

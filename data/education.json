@@ -1,0 +1,92 @@
+{
+  "id": "0abafbaa-d9c3-42d2-a8c8-3b2d91bb6786",
+  "title": "교육자료",
+  "lastUpdateDate": "2023-12-28T11:28:00.000Z",
+  "children": [
+    {
+      "id": "5369a183-aa92-442a-9358-968a2002ff31",
+      "title": "앱 다운로드",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": []
+    },
+    {
+      "id": "8d6de7b0-aae9-4a05-8b21-989e0bc3f876",
+      "title": "앱 사용법",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": []
+    },
+    {
+      "id": "2867483c-59c9-4ee3-b7a8-4c1e653aea7b",
+      "title": "윈도우 프로그램 사용법",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": []
+    },
+    {
+      "id": "503985bd-b2f2-435c-b798-0fd6a4160abf",
+      "title": "아두이노 ESP32 예제",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": []
+    },
+    {
+      "id": "187d5a38-9c15-4e1a-8f50-18c904223b90",
+      "title": "유선 통신 예제",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": [
+        {
+          "id": "1126519f-c052-4d9c-9ae8-112ac8d579f4",
+          "title": "SET_TEXT 명령어",
+          "lastUpdateDate": "2023-12-26T09:53:00.000Z",
+          "children": []
+        },
+        {
+          "id": "cb89f4fd-1b90-438a-bea4-b0a7b7888372",
+          "title": "SET_COLOR_TEXT 명령어",
+          "lastUpdateDate": "2023-12-26T09:54:00.000Z",
+          "children": []
+        },
+        {
+          "id": "003f70f9-9b9e-47a6-8641-0c5e4c14487c",
+          "title": "SET_DRAW 명령어",
+          "lastUpdateDate": "2023-12-26T09:56:00.000Z",
+          "children": []
+        },
+        {
+          "id": "54a585d6-56ff-4f0b-a0ca-379843d61d29",
+          "title": "SAVE_TEXT 명령어",
+          "lastUpdateDate": "2023-12-26T09:57:00.000Z",
+          "children": []
+        },
+        {
+          "id": "ef8dd2a9-1007-4777-8092-8f74a9caf7cd",
+          "title": "SAVE_ROTATION 명령어",
+          "lastUpdateDate": "2023-12-26T09:58:00.000Z",
+          "children": []
+        },
+        {
+          "id": "5460a398-88a8-4f66-95f3-031adf989b58",
+          "title": "테두리 효과",
+          "lastUpdateDate": "2023-12-26T09:59:00.000Z",
+          "children": []
+        },
+        {
+          "id": "ca096ce6-c744-476a-8df9-a088f316e35a",
+          "title": "눈 꽃 효과",
+          "lastUpdateDate": "2023-12-26T10:00:00.000Z",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "ec71a557-4d94-4a72-a2a3-f8635b1b930f",
+      "title": "기업형 보드 케이블 결선도",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": []
+    },
+    {
+      "id": "41fd47b6-fe33-4fa8-abd9-620f46c6cd1b",
+      "title": "이미지 파일",
+      "lastUpdateDate": "2023-12-28T11:27:00.000Z",
+      "children": []
+    }
+  ]
+}
