@@ -15,6 +15,7 @@
 </template>
 <script lang="ts" setup>
 import type { NotionListResponse, NotionData } from '~/composables/notion'
+import portfolioJsonData from '~/data/portfolio.json'
 
 const currentPage = ref(1)
 const pageSize = ref(100)
@@ -23,12 +24,13 @@ const portfolioData = ref<NotionListResponse<NotionData>>()
 async function load() {
   await useLoadingTask(async () => {
     try {
-      portfolioData.value = await $fetch('/api/portfolio-list', {
-        method: 'post',
-        body: {
-          pageSize: pageSize.value,
-        },
-      })
+      // portfolioData.value = await $fetch('/api/portfolio-list', {
+      //   method: 'post',
+      //   body: {
+      //     pageSize: pageSize.value,
+      //   },
+      // })
+      portfolioData.value = portfolioJsonData
 
       let startNo = pageSize.value * (currentPage.value - 1)
       portfolioData.value?.list?.forEach(row => {
