@@ -40,5 +40,5 @@ jobs:
           git add -A
           git config --global user.email "keymasroy@gmail.com"
           git config --global user.name "Roy Lee"
-          git commit --allow-empty -am "Update notion data : ${CURRENT_DATE}"
+          git commit -am "Update notion data : ${CURRENT_DATE}"
           git push
