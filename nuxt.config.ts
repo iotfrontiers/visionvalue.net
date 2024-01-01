@@ -118,7 +118,7 @@ export default defineNuxtConfig({
         { content: 'en_US', property: 'og:locale:alternate' },
         { content: '(주) 프런티어', property: 'og:title' },
         { content: 'We are IT experts. FRONTIER', property: 'og:description' },
-        { content: '//frontierscokr.netlify.app/_nuxt/banner-top.a3296987.png', property: 'og:image' },
+        { content: '//www.frontiers.co.kr/_nuxt/banner-top.a3296987.png', property: 'og:image' },
       ],
       title: '(주) 프런티어',
     },
