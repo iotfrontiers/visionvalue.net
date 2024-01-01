@@ -1,20 +1,20 @@
 <template>
-  <div class="detail-box" v-if="!hasChildren && noticeInfo">
-    <div class="d-flex flex-row-reverse">
-      <VBtn icon="mdi-microsoft-xbox-controller-menu" theme="light" class="v-btn--blank" @click="() => $router.push('/community/education')"></VBtn>
-    </div>
-    <div class="title">{{ noticeInfo.title }}</div>
-    <VDivider class="mt-8 mb-8" />
-    <CommonMarkdownViewer :content="noticeInfo.content" @contentUpdated="updatedContent" />
-  </div>
-  <div v-else-if="hasChildren">
-    <div class="d-flex align-center">
+  <div>
+    <div class="d-flex align-center" v-if="hasChildren">
       <VChipGroup class="ma-2">
         <VChip v-for="menu in targetMenu.children">{{ menu.title }}</VChip>
       </VChipGroup>
     </div>
+    <div class="detail-box" v-if="noticeInfo">
+      <div class="d-flex flex-row-reverse">
+        <VBtn icon="mdi-microsoft-xbox-controller-menu" theme="light" class="v-btn--blank" @click="() => $router.push('/community/education')"></VBtn>
+      </div>
+      <div class="title">{{ noticeInfo.title }}</div>
+      <VDivider class="mt-8 mb-8" />
+      <CommonMarkdownViewer :content="noticeInfo.content" @contentUpdated="updatedContent" />
+    </div>
+    <div v-else></div>
   </div>
-  <div v-else></div>
 </template>
 <script lang="ts" setup>
 import type { NotionData } from '~/composables/notion'
