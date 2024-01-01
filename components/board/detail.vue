@@ -41,6 +41,13 @@ const noticeInfo = ref<NotionData>(null)
 async function loadDetail() {
   await useLoadingTask(async () => {
     noticeInfo.value = await $fetch(`${props.apiUrl}/${route.params.id}.json`)
+
+    $fetch('/api/notion-view-cnt-add', {
+      params: {
+        id: route.params.id,
+      },
+    })
+
     // noticeInfo.value = await $fetch(props.apiUrl, {
     //   params: {
     //     id: route.params.id,

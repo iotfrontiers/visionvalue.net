@@ -1,5 +1,10 @@
 // import markdown from '#ustra/core/utils/misc/markdown'
 import hljs from 'highlight.js/lib/common'
+// import javascript from 'highlight.js/lib/languages/javascript'
+// import typescript from 'highlight.js/lib/languages/typescript'
+// import c from 'highlight.js/lib/languages/c'
+// import cpp from 'highlight.js/lib/languages/cpp'
+
 import mdit from 'markdown-it'
 
 import sub from 'markdown-it-sub'
@@ -20,6 +25,13 @@ const options = {
   typographer: true,
   quotes: '“”‘’',
 }
+
+// hljs.registerLanguage('javascript', javascript)
+// hljs.registerLanguage('typescript', typescript)
+// hljs.registerLanguage('c', c)
+// hljs.registerLanguage('cpp', cpp)
+// hljs.registerLanguage('c++', cpp)
+
 const markdownit = new mdit(options)
   .use(sub)
   .use(sup)

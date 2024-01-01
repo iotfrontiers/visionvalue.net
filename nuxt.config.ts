@@ -109,7 +109,17 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      meta: [{ name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' }],
+      meta: [
+        { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' },
+        { content: 'website', property: 'og:type' },
+        { content: 'frontiers.co.kr', property: 'og:site:name' },
+        { content: '//frontiers.co.kr', property: 'og:url' },
+        { content: 'ko_KR', property: 'og:locale' },
+        { content: 'en_US', property: 'og:locale:alternate' },
+        { content: '(주) 프런티어', property: 'og:title' },
+        { content: 'We are IT experts. FRONTIER', property: 'og:description' },
+        { content: '//frontierscokr.netlify.app/_nuxt/banner-top.a3296987.png', property: 'og:image' },
+      ],
       title: '(주) 프런티어',
     },
   },

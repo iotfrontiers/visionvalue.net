@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="d-flex align-center" v-if="hasChildren">
-      <VChipGroup class="ma-2">
-        <VChip v-for="menu in targetMenu.children">{{ menu.title }}</VChip>
+      <VChipGroup class="ma-2" selectedClass="text-primary" v-model="currentId">
+        <VChip v-for="menu in targetMenu.children" :key="menu.id" :value="menu.id">{{ menu.title }}</VChip>
       </VChipGroup>
     </div>
     <div class="detail-box" v-if="noticeInfo">
@@ -21,19 +21,23 @@ import type { NotionData } from '~/composables/notion'
 
 const route = useRoute()
 const router = useRouter()
+
+const targetMenu = computed(() => findEducationMenu(route.params.id as string))
+const hasChildren = computed(() => targetMenu.value.children && targetMenu.value.children.length > 0)
+const currentId = ref(hasChildren.value ? targetMenu.value.children[0].id : route.params.id)
+
+watch(currentId, v => loadDetail())
+
 const noticeInfo = ref<NotionData>(null)
 async function loadDetail() {
   await useLoadingTask(async () => {
-    noticeInfo.value = await $fetch(`/data/education/${route.params.id}.json`)
+    noticeInfo.value = await $fetch(`/data/education/${currentId.value}.json`)
     if (!noticeInfo.value) {
       alert(COMMON_MESSAGES.DATA_NOT_FOUND_ERROR)
       router.back()
     }
   })
 }
-
-const targetMenu = computed(() => findEducationMenu(route.params.id as string))
-const hasChildren = computed(() => targetMenu.value.children && targetMenu.value.children.length > 0)
 
 function updatedContent(dom: HTMLDivElement) {
   const linkEls = dom.getElementsByTagName('a')
