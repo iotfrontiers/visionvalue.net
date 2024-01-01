@@ -83,6 +83,10 @@ function logoClick() {
   min-height: 50px;
   font-weight: 600;
 
+  .gnb-menu-btn {
+    font-size: 16px;
+  }
+
   @media screen and (max-width: 700px) {
     .gnb-menu-btn {
       display: none;
