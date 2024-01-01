@@ -7,7 +7,8 @@
       "id": "5369a183-aa92-442a-9358-968a2002ff31",
       "title": "앱 다운로드",
       "lastUpdateDate": "2023-12-28T11:27:00.000Z",
-      "children": []
+      "children": [],
+      "linkUrl": "https://play.google.com/store/apps/details?id=com.frontier.lighitboard"
     },
     {
       "id": "8d6de7b0-aae9-4a05-8b21-989e0bc3f876",
@@ -25,7 +26,8 @@
       "id": "503985bd-b2f2-435c-b798-0fd6a4160abf",
       "title": "아두이노 ESP32 예제",
       "lastUpdateDate": "2023-12-28T11:27:00.000Z",
-      "children": []
+      "children": [],
+      "linkUrl": "https://the-stella.tistory.com/"
     },
     {
       "id": "187d5a38-9c15-4e1a-8f50-18c904223b90",
@@ -86,7 +88,8 @@
       "id": "41fd47b6-fe33-4fa8-abd9-620f46c6cd1b",
       "title": "이미지 파일",
       "lastUpdateDate": "2023-12-28T11:27:00.000Z",
-      "children": []
+      "children": [],
+      "linkUrl": "https://frontiers.tistory.com/pages/이미지-파일"
     }
   ]
 }

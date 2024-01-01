@@ -43,6 +43,8 @@ export default defineNuxtConfig({
   },
   hooks: {
     'pages:extend'(pages) {
+      // console.log('pages', JSON.stringify(pages, null, 2))
+
       const communityPage = pages.find(p => p.name === 'community')
       if (communityPage) {
         const noticePage = communityPage.children.find(p => p.name === 'community-notice')
@@ -58,6 +60,13 @@ export default defineNuxtConfig({
           communityPage.children.push(newsPage.children[0])
           newsPage.children.splice(0, 1)
         }
+
+        // const educationPage = communityPage.children.find(p => p.name === 'community-education')
+        // if (educationPage && educationPage.children.length === 1) {
+        //   educationPage.children[0].path = 'education/:id()'
+        //   communityPage.children.push(educationPage.children[0])
+        //   educationPage.children.splice(0, 1)
+        // }
       }
 
       const inquiryPage = pages.find(p => p.name === 'inquiry')
