@@ -14,11 +14,11 @@
   </VRow>
 </template>
 <script lang="ts" setup>
-import type { NotionListResponse, NotionNotice } from '~/composables/notion'
+import type { NotionListResponse, NotionData } from '~/composables/notion'
 
 const currentPage = ref(1)
 const pageSize = ref(100)
-const portfolioData = ref<NotionListResponse<NotionNotice>>()
+const portfolioData = ref<NotionListResponse<NotionData>>()
 
 async function load() {
   await useLoadingTask(async () => {

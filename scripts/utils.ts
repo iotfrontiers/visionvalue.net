@@ -145,12 +145,12 @@ export const getNotionMarkdownContent = async (id: string, downloadResource: boo
             if (useCloudinary) {
               const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
               if (cloudinaryFileUrl) {
-                block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+                block.parent = decodeURIComponent(dataArr[0]) + `(${cloudinaryFileUrl})`
               }
             } else {
               const localFileUrl = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
               if (localFileUrl) {
-                block.parent = dataArr[0] + `(${localFileUrl})`
+                block.parent = decodeURIComponent(dataArr[0]) + `(${localFileUrl})`
               }
             }
           }
@@ -168,12 +168,12 @@ export const getNotionMarkdownContent = async (id: string, downloadResource: boo
               const cloudinaryFileUrl = await uploadCloudinaryImage(dataArr[1].substring(0, dataArr[1].length - 1))
 
               if (cloudinaryFileUrl) {
-                block.parent = dataArr[0] + `(${cloudinaryFileUrl})`
+                block.parent = decodeURIComponent(dataArr[0]) + `(${cloudinaryFileUrl})`
               }
             } else {
               const localFileUrl = await saveFileFromImageUrl(id, dataArr[1].substring(0, dataArr[1].length - 1))
               if (localFileUrl) {
-                block.parent = dataArr[0] + `(${localFileUrl})`
+                block.parent = decodeURIComponent(dataArr[0]) + `(${localFileUrl})`
               }
             }
           }

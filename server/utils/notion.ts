@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto'
 import { dirname, resolve, extname, join } from 'pathe'
 import { existsSync, mkdirSync, createWriteStream } from 'node:fs'
 import { NotionToMarkdown } from 'notion-to-md'
-import { NotionNotice, NotionListResponse, NotionPageRequest } from '~/composables/notion'
+import { NotionData, NotionListResponse, NotionPageRequest } from '~/composables/notion'
 import https from 'https'
 
 export const createNotionClient = () => {
@@ -89,7 +89,7 @@ export const createBoardListApi = async (event: any, databaseId: string) => {
       ],
     })
 
-    const noticeList: NotionNotice[] = []
+    const noticeList: NotionData[] = []
     result.results.forEach((row: any) => {
       noticeList.push({
         id: row.id as string,
@@ -103,7 +103,7 @@ export const createBoardListApi = async (event: any, databaseId: string) => {
     return {
       nextCursor: result['next_cursor'],
       list: noticeList,
-    } as NotionListResponse<NotionNotice>
+    } as NotionListResponse<NotionData>
   } catch (e) {
     console.error(e)
     return {
@@ -156,10 +156,10 @@ export const createBoardDetailApi = async (event: H3Event) => {
 
     // if (existsSync(cacheFilePath)) {
     //   console.info('return cached result', cacheFilePath)
-    //   return JSON.parse(readFileSync(cacheFilePath, { encoding: 'utf-8' })) as NotionNotice
+    //   return JSON.parse(readFileSync(cacheFilePath, { encoding: 'utf-8' })) as NotionData
     // }
 
-    const data: NotionNotice = {
+    const data: NotionData = {
       id: pageInfo.id as string,
       // @ts-ignore
       title: pageInfo?.properties?.['제목']?.title[0]?.['plain_text'] as string,

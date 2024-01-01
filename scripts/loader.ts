@@ -1,4 +1,4 @@
-import { type NotionNotice, type NotionListResponse } from '~/composables/notion'
+import { type NotionData, type NotionListResponse } from '~/composables/notion'
 import { useDeepMerge } from '../utils/core'
 import { createNotionClient, getNotionMarkdownContent, getImageUrlInPage, getDataFilePath, getPageDataFilePath } from './utils'
 import { writeFileSync, existsSync, readFileSync, mkdirSync } from 'node:fs'
@@ -44,14 +44,14 @@ export interface NotionDataLoaderOptions {
    * @param res
    * @returns
    */
-  customizeDatabaseResponse?: (res: DatabaseObjectResponse) => NotionNotice | Promise<NotionNotice>
+  customizeDatabaseResponse?: (res: DatabaseObjectResponse) => NotionData | Promise<NotionData>
 
   /**
    * 페이지 응답 값 커스토마이징 function
    * @param res
    * @returns
    */
-  customizePageResponse?: (res: PageObjectResponse) => NotionNotice | Promise<NotionNotice>
+  customizePageResponse?: (res: PageObjectResponse) => NotionData | Promise<NotionData>
 }
 
 export class NotionDataLoader {
@@ -88,7 +88,7 @@ export class NotionDataLoader {
       const dataFilePath = getDataFilePath(this.options.id)
       this.createDirectories(dataFilePath)
 
-      let oldData: { list: NotionNotice[] } = null
+      let oldData: { list: NotionData[] } = null
       if (existsSync(dataFilePath)) {
         oldData = JSON.parse(
           readFileSync(dataFilePath, {
@@ -111,10 +111,10 @@ export class NotionDataLoader {
         return lastUpdatedTime !== pageData.lastUpdateDate
       }
 
-      const list: NotionNotice[] = []
+      const list: NotionData[] = []
       if (result.results) {
         for (const row of result.results) {
-          let listData: NotionNotice = {}
+          let listData: NotionData = {}
           if (this.options.customizeDatabaseResponse) {
             listData = (await this.options.customizeDatabaseResponse(<DatabaseObjectResponse>row)) || {}
           }
@@ -136,7 +136,7 @@ export class NotionDataLoader {
       const r = {
         nextCursor: result['next_cursor'],
         list,
-      } as NotionListResponse<NotionNotice>
+      } as NotionListResponse<NotionData>
 
       writeFileSync(dataFilePath, JSON.stringify(r, null, 2))
       consola.info(`finished ${this.options.id} database`)
@@ -166,7 +166,7 @@ export class NotionDataLoader {
     const dataFilePath = getPageDataFilePath(this.options.id, id)
     this.createDirectories(dataFilePath)
 
-    let oldData: NotionNotice = null
+    let oldData: NotionData = null
     if (existsSync(dataFilePath)) {
       oldData = JSON.parse(readFileSync(dataFilePath, { encoding: 'utf-8' }))
     }
@@ -176,7 +176,7 @@ export class NotionDataLoader {
       page_id: id as string,
     })
 
-    let data: NotionNotice = {}
+    let data: NotionData = {}
     if (this.options.customizePageResponse) {
       data = (await this.options.customizePageResponse(<PageObjectResponse>pageInfo)) || {}
     }
@@ -189,8 +189,22 @@ export class NotionDataLoader {
       imgUrl: '',
     })
 
+    // check link url
+    if (data.content) {
+      const content = data.content.trim()
+      const contentLines = content.split('\n')
+      if (content.startsWith('[') && contentLines.length === 1) {
+        const matches = content.match('\\((.*?)\\)')
+        if (matches.length > 0) {
+          data.linkUrl = matches[1]
+        }
+      }
+    }
+
     writeFileSync(dataFilePath, JSON.stringify(data, null, 2))
     consola.info(`finished ${this.options.id} page data : ` + id)
+
+    return data
   }
 
   /**
@@ -209,7 +223,7 @@ export class NotionDataLoader {
       page_id: id as string,
     })
 
-    const page: NotionNotice = {
+    const page: NotionData = {
       id: pageInfo.id,
       title: pageInfo['properties']?.title?.title[0]?.text?.content,
       lastUpdateDate: pageInfo['last_edited_time'],
@@ -224,14 +238,16 @@ export class NotionDataLoader {
       page.children.push(await this.loadPageHierarchy(childPage.id, depth + 1))
     }
 
+    // 하위 페이지가 없을 경우, 페이지 컨텐츠를 조회한다.
+    if (!page.children || page.children.length < 1) {
+      const pageData = await this.loadPage(page.id)
+      page.linkUrl = pageData.linkUrl
+    }
+
     if (depth === 0) {
       const dataFilePath = getDataFilePath(this.options.id)
       this.createDirectories(dataFilePath)
       writeFileSync(dataFilePath, JSON.stringify(page, null, 2))
-    }
-
-    if (!page.children || page.children.length < 1) {
-      await this.loadPage(page.id)
     }
 
     return page

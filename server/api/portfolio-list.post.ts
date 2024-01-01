@@ -22,7 +22,7 @@ export default cachedEventHandler(
     //     ],
     //   })
 
-    //   const list: NotionNotice[] = []
+    //   const list: NotionData[] = []
     //   if (result.results) {
     //     for (const row of result.results) {
     //       const typedRow = row as any
@@ -41,7 +41,7 @@ export default cachedEventHandler(
     //   return {
     //     nextCursor: result['next_cursor'],
     //     list,
-    //   } as NotionListResponse<NotionNotice>
+    //   } as NotionListResponse<NotionData>
     // } catch (e) {
     //   console.error(e)
     //   return {

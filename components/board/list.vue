@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NotionListResponse, NotionNotice } from '~/composables/notion'
+import type { NotionListResponse, NotionData } from '~/composables/notion'
 import { useDisplay } from 'vuetify'
 
 const props = withDefaults(
@@ -32,7 +32,7 @@ const props = withDefaults(
 
 const currentPage = ref(1)
 const pageSize = ref(100)
-const noticeData = ref<NotionListResponse<NotionNotice>>()
+const noticeData = ref<NotionListResponse<NotionData>>()
 
 async function loadNotice() {
   await useLoadingTask(async () => {

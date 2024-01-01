@@ -33,6 +33,7 @@
         </template>
         <VListItem @click="movePage('/community/notice')" prependIcon="mdi-bulletin-board">공지사항</VListItem>
         <VListItem @click="movePage('/community/news')" prependIcon="mdi-newspaper-variant-multiple-outline">News</VListItem>
+        <VListItem @click="movePage('/community/education')" prependIcon="mdi-human-male-board">교육자료</VListItem>
       </VListGroup>
 
       <VListGroup>
@@ -42,15 +43,30 @@
         <VListItem @click="movePage('/inquiry/ask')" prependIcon="mdi-file-document-edit">기술/견적문의</VListItem>
         <VListItem @click="movePage('/inquiry/pds')" prependIcon="mdi-download-box-outline">자료실</VListItem>
       </VListGroup>
+
+      <VListGroup v-if="productIntroMenu.show">
+        <template v-slot:activator="{ props: prop }">
+          <VListItem v-bind="prop" title="제품소개" density="compact" prependIcon="mdi-package-variant-closed"></VListItem>
+        </template>
+        <VListItem v-for="menu in productIntroMenu.menus" @click="moveProductPage(menu.id, menu.linkUrl)" prependIcon="mdi-archive-search-outline">{{
+          menu.title
+        }}</VListItem>
+      </VListGroup>
     </VList>
   </VNavigationDrawer>
 </template>
 <script lang="ts" setup>
 const showDrawer = useMainDrawerOpenedState()
 const router = useRouter()
+const productIntroMenu = useProductIntroMenu()
 
 function movePage(path: string) {
   router.push(path)
+  showDrawer.value = false
+}
+
+function moveProductPage(id: string, linkUrl: string) {
+  openProductionUrl(id, linkUrl)
   showDrawer.value = false
 }
 </script>

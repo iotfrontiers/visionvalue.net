@@ -47,13 +47,27 @@
         </VList>
       </VMenu>
 
+      <VMenu transition="scroll-y-transition" v-if="productIntroMenu.show">
+        <template v-slot:activator="{ props }">
+          <VBtn v-bind="props" class="v-btn--blank gnb-menu-btn">제품소개</VBtn>
+        </template>
+        <VList class="overlay-menu">
+          <VListItem @click="openProductionUrl(menu.id, menu.linkUrl)" v-for="menu in productIntroMenu.menus" :key="menu.id">{{
+            menu.title
+          }}</VListItem>
+        </VList>
+      </VMenu>
+
       <VBtn icon="mdi-menu" style="margin-right: 20px" @click="() => (showDrawer = !showDrawer)" class="v-btn--blank"></VBtn>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { openProductionUrl } from '#imports'
+
 const showDrawer = useMainDrawerOpenedState()
 const router = useRouter()
+const productIntroMenu = useProductIntroMenu()
 
 function logoClick() {
   router.push('/')
@@ -63,12 +77,12 @@ function logoClick() {
 <style lang="scss">
 .top-menu {
   // margin: 54px 0 0 95px;
-  margin: min(4vw, 54px) 0 0 min(5vw, 95px);
+  margin: min(4vw, 54px) 0 0 min(2vw, 95px);
   max-height: 50px;
   min-height: 50px;
   font-weight: 600;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 700px) {
     .gnb-menu-btn {
       display: none;
     }

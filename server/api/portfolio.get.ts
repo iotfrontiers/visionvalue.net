@@ -1,4 +1,4 @@
-import { NotionNotice } from '~/composables/notion'
+import { NotionData } from '~/composables/notion'
 
 /**
  * 포트폴리오 상세 조회
@@ -17,7 +17,7 @@ export default defineEventHandler(async event => {
       page_id: id as string,
     })
 
-    const data: NotionNotice = {
+    const data: NotionData = {
       id: pageInfo.id as string,
       // @ts-ignore
       title: pageInfo.properties['Name']?.title?.map(t => t.plain_text).join(''),

@@ -22,7 +22,7 @@
   <div v-else></div>
 </template>
 <script lang="ts" setup>
-import type { NotionNotice } from '~/composables/notion'
+import type { NotionData } from '~/composables/notion'
 
 const props = withDefaults(
   defineProps<{
@@ -37,7 +37,7 @@ const props = withDefaults(
 
 const route = useRoute()
 const router = useRouter()
-const noticeInfo = ref<NotionNotice>(null)
+const noticeInfo = ref<NotionData>(null)
 async function loadDetail() {
   await useLoadingTask(async () => {
     noticeInfo.value = await $fetch(`${props.apiUrl}/${route.params.id}.json`)

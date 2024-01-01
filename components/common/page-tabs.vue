@@ -15,8 +15,21 @@
 </template>
 <script lang="ts">
 export interface Tab {
+  /**
+   * 표시 제목
+   */
   title: string
+
+  /**
+   * 대상 URL
+   */
   targetUrl: string
+
+  /**
+   * 페이지 이동 전 전처리
+   * false를 반환할 경우 커스톰 처리를 수행한다.
+   */
+  beforeRoute?: (tab: Tab) => void | boolean
 }
 </script>
 <script setup lang="ts">
@@ -51,6 +64,13 @@ function selectdIndex() {
 }
 
 const itemClicked = (item: Tab) => {
+  if (item.beforeRoute) {
+    const result = item.beforeRoute(item)
+    if (result === false) {
+      return
+    }
+  }
+
   useRouter()
     .push(item.targetUrl)
     .then(() => selectdIndex())
