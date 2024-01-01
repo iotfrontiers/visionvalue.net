@@ -35,7 +35,7 @@ onMounted(async () => {
     '   <h3>(주) 프런티어</h3>',
     '   <p>경기 성남시 분당구 성남대로331번길 8 9층 901호<br />',
 
-    '       tel: <a href="tel:031-520-8060">031-520-8060</a><br />',
+    '       tel: <a href="tel:010-7607-4451">010-7607-4451</a><br />',
     '       e-mail: <a href="mailto:jongju0920@kakao.com">jongju0920@kakao.com</a>',
     '   </p>',
     '</div>',

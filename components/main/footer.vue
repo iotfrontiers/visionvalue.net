@@ -22,7 +22,7 @@
           </VRow>
           <VRow justify="end">
             <VCol
-              ><span class="phone"><a href="tel:031-520-8060">031-520-8060</a></span></VCol
+              ><span class="phone"><a href="tel:010-7607-4451">010-7607-4451</a></span></VCol
             >
             <VCol
               ><span class="fax"><a href="fax:0504-163-4451">0504-163-4451</a></span></VCol
@@ -36,7 +36,7 @@
     <div class="pt-0 flex-1-1-100">
       <VDivider color="white mt-10 mb-3" :thickness="2" />
 
-      FRONTIER <span class="ml-1 mr-1">|</span> 대표전화 : <a href="tel:031-520-8060">031-520-8060</a> <span class="ml-1 mr-1">|</span> 팩스 :
+      FRONTIER <span class="ml-1 mr-1">|</span> 대표전화 : <a href="tel:010-7607-4451">010-7607-4451</a> <span class="ml-1 mr-1">|</span> 팩스 :
       <a href="fax:0504-163-4451">0504-163-4451</a> <span class="ml-1 mr-1">|</span> 이메일 :
       <a href="mailto:jongju0920@kakao.com">jongju0920@kakao.com</a> <br />
       주소 : 경기 성남시 분당구 성남대로331번길 8 9층 901호
