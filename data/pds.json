@@ -1,14 +1,4 @@
 {
   "nextCursor": null,
-  "list": [
-    {
-      "title": "어플리케이션 자료 다운로드",
-      "author": "관리자",
-      "viewCnt": 32,
-      "date": "2023-11-26",
-      "id": "9cd71c5d-328e-4f47-abca-bfc492a6ca5b",
-      "imgUrl": null,
-      "lastUpdateDate": "2024-01-01T18:33:00.000Z"
-    }
-  ]
+  "list": []
 }
