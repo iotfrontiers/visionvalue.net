@@ -51,7 +51,9 @@ function updatedContent(dom: HTMLDivElement) {
 
       item.parentElement.append(
         htmlToElement(
-          `<iframe width="560" height="315" src="https://www.youtube.com/embed/${targetId}?si=nz8V9xeXMGVAZpcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+          `<div class="video-container">
+            <iframe  src="https://www.youtube.com/embed/${targetId}?si=nz8V9xeXMGVAZpcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>`,
         ),
       )
     }
@@ -63,7 +65,9 @@ function updatedContent(dom: HTMLDivElement) {
       if (targetId) {
         item.parentElement.append(
           htmlToElement(
-            `<iframe width="560" height="315" src="https://www.youtube.com/embed/${targetId}?si=nz8V9xeXMGVAZpcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+            `<div class="video-container">
+                <iframe src="https://www.youtube.com/embed/${targetId}?si=nz8V9xeXMGVAZpcB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>`,
           ),
         )
       }
