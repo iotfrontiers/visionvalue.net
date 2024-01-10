@@ -2,18 +2,25 @@
   "nextCursor": null,
   "list": [
     {
+      "title": "테스트 ",
+      "viewCnt": null,
+      "id": "de26607a-d35e-4ade-bc54-a4c94294ed05",
+      "imgUrl": null,
+      "lastUpdateDate": "2024-01-10T07:06:00.000Z"
+    },
+    {
       "title": "에버모터스",
-      "viewCnt": 0,
+      "viewCnt": 3,
       "id": "a760acc8-63e9-4589-a5e9-4275abac99e1",
       "imgUrl": null,
-      "lastUpdateDate": "2024-01-10T05:41:00.000Z"
+      "lastUpdateDate": "2024-01-10T07:06:00.000Z"
     },
     {
       "title": "라히트 보드 3.0",
       "viewCnt": 0,
       "id": "9fd6c2ca-e546-417d-8498-2d1e5833cfd7",
       "imgUrl": null,
-      "lastUpdateDate": "2024-01-10T05:40:00.000Z"
+      "lastUpdateDate": "2024-01-10T07:04:00.000Z"
     }
   ]
 }
