@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrap">
     <CommonPageContainer
-      header-bg-img="banner-inquiry.png"
+      header-bg-img="banner-product.png"
       :tabItems="
         productIntroMenu.menus.map(menu => {
           return {
