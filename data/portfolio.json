@@ -2,6 +2,21 @@
   "nextCursor": null,
   "list": [
     {
+      "title": "ㅇㄹㄴㅇㄴㄹㄴㄹ",
+      "categories": [
+        "펌웨어",
+        "인턴",
+        "C/C++",
+        "Bluetooth",
+        "Vue.Js",
+        "Node.Js",
+        "어플리케이션",
+        "대내외활동"
+      ],
+      "id": "21760461-38f8-4980-a706-812b1a74fd19",
+      "lastUpdateDate": "2024-01-11T01:48:00.000Z"
+    },
+    {
       "title": "스마트 디스플레이 광고판 프로젝트",
       "categories": [
         "JAVA",
