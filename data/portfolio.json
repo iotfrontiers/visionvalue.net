@@ -2,6 +2,19 @@
   "nextCursor": null,
   "list": [
     {
+      "title": "기계식 주차장 디스플레이",
+      "categories": [
+        "Arudino",
+        "C/C++",
+        "RestAPI",
+        "Mqtt",
+        "Wifi",
+        "ESP-Now"
+      ],
+      "id": "37bb0b8f-f5e4-4377-9ff0-3cfe661b138b",
+      "lastUpdateDate": "2024-01-16T11:42:00.000Z"
+    },
+    {
       "title": "스마트 디스플레이 광고판 프로젝트",
       "categories": [
         "JAVA",
