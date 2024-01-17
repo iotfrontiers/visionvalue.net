@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: false,
+    shim: false,
     tsConfig: {
       compilerOptions: {
         allowImportingTsExtensions: true,

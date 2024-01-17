@@ -1,9 +1,9 @@
 <template>
   <VNavigationDrawer color="#1e293b" v-model="showDrawer" location="right" temporary :width="300">
-    <v-toolbar density="compact" color="blue-lighten-1">
-      <v-app-bar-nav-icon @click="showDrawer = false"></v-app-bar-nav-icon>
-      <v-toolbar-title>Frontier Site Map</v-toolbar-title>
-    </v-toolbar>
+    <VToolbar density="compact" color="blue-lighten-1">
+      <VAppBarNavIcon @click="showDrawer = false" style="color:#fff"></VAppBarNavIcon>
+      <VToolbarTitle>Frontier Site Map</VToolbarTitle>
+    </VToolbar>
     <VList density="compact">
       <VListItem @click="movePage('/')" prependIcon="mdi-home-circle">Home</VListItem>
       <VListGroup>
