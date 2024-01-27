@@ -2,12 +2,6 @@
   "nextCursor": null,
   "list": [
     {
-      "title": "",
-      "categories": [],
-      "id": "b6ea42c3-dceb-4e56-b462-6d271134cd3b",
-      "lastUpdateDate": "2024-01-26T04:34:00.000Z"
-    },
-    {
       "title": "기계식 주차장 디스플레이",
       "categories": [
         "C/C++",
@@ -16,8 +10,8 @@
         "Serial"
       ],
       "id": "37bb0b8f-f5e4-4377-9ff0-3cfe661b138b",
-      "imgUrl": "/notion-resources/37bb0b8f-f5e4-4377-9ff0-3cfe661b138b/c6543f62a54e09bb2812265bd99cdcf8.jpg",
-      "lastUpdateDate": "2024-01-26T11:33:00.000Z"
+      "imgUrl": "/notion-resources/37bb0b8f-f5e4-4377-9ff0-3cfe661b138b/41024c0463f29ce30a397d50a583ca5a.jpg",
+      "lastUpdateDate": "2024-01-27T01:36:00.000Z"
     },
     {
       "title": "스마트 디스플레이 광고판 프로젝트",
