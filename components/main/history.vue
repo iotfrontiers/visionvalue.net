@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 const resources = [
-  { year: '2024', content: [{ date: '4월', text: '신규 법인 전환] },
+  { year: '2024', content: [{ date: '4월', text: '신규 법인 전환'}] },
   {
     year: '2020',
     content: [
