@@ -21,11 +21,10 @@
 
 <script lang="ts" setup>
 const resources = [
-  { year: '2023', content: [] },
+  { year: '2024', content: [{ date: '4월', text: '신규 법인 전환] },
   {
     year: '2020',
     content: [
-      { date: '10.12 ', text: '회사 상호 변경 (트루솔루션 → 프런티어)' },
       { date: '10.17 ', text: '연구개발전담부서 설립' },
       { date: '10.29 ', text: '벤처기업인증' },
     ],
