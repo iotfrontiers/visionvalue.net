@@ -1,7 +1,7 @@
 <template>
   <VRow class="maps-wrap" no-gutters>
     <VCol class="mb-10">
-      <span>경기 성남시 분당구 성남대로331번길 8 9층 901호</span>
+      <span>경기 성남시 분당구 성남대로331번길 8 20층 9호</span>
     </VCol>
     <VCol :cols="12" align="center">
       <!-- <div class="map-container"> -->
