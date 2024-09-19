@@ -14,7 +14,7 @@
 const map = shallowRef()
 
 useHead({
-  script: [{ type: 'text/javascript', src: 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=y1fjmf6ydu' }],
+  script: [{ type: 'text/javascript', src: 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=py452ejk83' }],
 })
 
 onMounted(async () => {
