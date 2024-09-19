@@ -11,7 +11,7 @@
           <VRow justify="end">
             <VCol>
               <span class="site">
-                <a href="//www.frontiers.co.kr">www.frontiers.co.kr</a>
+                <a href="//www.visionvalue.net">www.visionvalue.net</a>
               </span>
             </VCol>
             <VCol>
@@ -36,7 +36,7 @@
     <div class="pt-0 flex-1-1-100">
       <VDivider color="white mt-10 mb-3" :thickness="2" />
 
-      FRONTIER <span class="ml-1 mr-1">|</span> 대표전화 : <a href="tel:010-3911-7684">010-3911-7684</a> <span class="ml-1 mr-1">|</span> 팩스 :
+      VISIONVALUE <span class="ml-1 mr-1">|</span> 대표전화 : <a href="tel:010-3911-7684">010-3911-7684</a> <span class="ml-1 mr-1">|</span> 팩스 :
       <a href="fax:0504-163-4451">0504-163-4451</a> <span class="ml-1 mr-1">|</span> 이메일 :
       <a href="mailto:ykp@visionvalue.net">ykp@visionvalue.net</a> <br />
       주소 : 경기 성남시 분당구 성남대로331번길 8 20층 9호
