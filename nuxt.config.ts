@@ -113,8 +113,8 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' },
         { content: 'website', property: 'og:type' },
-        { content: 'frontiers.co.kr', property: 'og:site:name' },
-        { content: '//frontiers.co.kr', property: 'og:url' },
+        { content: 'visionvalue.net', property: 'og:site:name' },
+        { content: '//visionvalue.net', property: 'og:url' },
         { content: 'ko_KR', property: 'og:locale' },
         { content: 'en_US', property: 'og:locale:alternate' },
         { content: '(주) 비젼밸류', property: 'og:title' },
