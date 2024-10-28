@@ -50,7 +50,7 @@ const swiper = ref()
 
 const resources: { idx: number; label: string }[] = [
   { idx: 1, label: '응용 LED 디스플레이' },
-  { idx: 2, label: '스마트팩토리(빌딩 자동화), 기계식 주차장' },
+  { idx: 2, label: 'Wep App 플랫폼' },
   { idx: 3, label: '개발(S/W & H/W)' },
   { idx: 4, label: '인력 아웃소싱 사업' },
   // { idx: 99, label: '' },
