@@ -21,7 +21,7 @@
         </template>
         <VList class="overlay-menu">
           <VListItem @click="$router.push('/field/display')">응용 LED 디스플레이</VListItem>
-          <VListItem @click="$router.push('/field/smart-factory')">스마트팩토리(빌딩 자동화), 기계식 주차장</VListItem>
+          <VListItem @click="$router.push('/field/smart-factory')">Web App 플랫폼</VListItem>
           <VListItem @click="$router.push('/field/dev')">개발(S/W & H/W)</VListItem>
           <VListItem @click="$router.push('/field/out-sourcing')">인력 아웃소싱 사업</VListItem>
         </VList>
