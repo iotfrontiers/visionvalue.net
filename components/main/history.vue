@@ -21,15 +21,18 @@
 
 <script lang="ts" setup>
 const resources = [
-  { year: '2024', content: [{ date: '4월', text: '신규 법인 전환'}] },
-  {
-    year: '2020',
-    content: [
-      { date: '10.17 ', text: '연구개발전담부서 설립' },
-      { date: '10.29 ', text: '벤처기업인증' },
-    ],
-  },
-  { year: '2019', content: [{ date: '12월', text: '회사 설립(자본금 200,000,000)' }] },
+  { year: '2024', content: [
+      { date: '10월', text: '2024 디딤돌 R&D 지원사업 선정' },
+      { date: '8월', text: '기업부설연구소 설립' },
+      { date: '8월', text: '창업기업확인서 인증' },
+      { date: '7월', text: '벤처기업확인서 인증' },
+      { date: '7월', text: '소프트웨어사업자 관리확인서 인증' },
+      { date: '7월', text: '성남산업진흥원 입주기업 선정' },
+      { date: '6월', text: '여성기업확인서 인증' },
+      { date: '5월', text: '연구개발전담부서 설립' },
+      { date: '5월', text: '중소기업확인서 인증' },
+      { date: '4월', text: '(주)비젼밸류 법인설립' },
+    ] },
 ]
 </script>
 
